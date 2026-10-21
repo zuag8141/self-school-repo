@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center py-4">
+    <h1 class="display-6">zSubscription Razor WebApp</h1>
+    <p class="lead text-muted">ASM2 - Razor Pages CRUD + SignalR CRUD (MSSQL)</p>
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <a class="btn btn-primary" asp-page="/MembershipFeesQuangTt/Index">Membership Fees CRUD</a>
+            <a class="btn btn-success" asp-page="/MembershipFeesQuangTt/SignalR">SignalR CRUD</a>
+        }
+        else
+        {
+            <a class="btn btn-primary" asp-page="/Account/Login">Login to continue</a>
+        }
+    </div>
+</div>

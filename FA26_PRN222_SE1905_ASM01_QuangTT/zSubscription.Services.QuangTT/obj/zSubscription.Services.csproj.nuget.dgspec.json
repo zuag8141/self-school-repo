@@ -1,0 +1,215 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services\\zSubscription.Services.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities\\zSubscription.Entities.QuangTT.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities\\zSubscription.Entities.QuangTT.csproj",
+        "projectName": "zSubscription.Entities.QuangTT",
+        "projectPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities\\zSubscription.Entities.QuangTT.csproj",
+        "packagesPath": "C:\\Users\\trant\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.30, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.318/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories\\zSubscription.Repositories.QuangTT.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories\\zSubscription.Repositories.QuangTT.csproj",
+        "projectName": "zSubscription.Repositories.QuangTT",
+        "projectPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories\\zSubscription.Repositories.QuangTT.csproj",
+        "packagesPath": "C:\\Users\\trant\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities\\zSubscription.Entities.QuangTT.csproj": {
+                "projectPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities\\zSubscription.Entities.QuangTT.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.17, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[9.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.318/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services\\zSubscription.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services\\zSubscription.Services.csproj",
+        "projectName": "zSubscription.Services",
+        "projectPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services\\zSubscription.Services.csproj",
+        "packagesPath": "C:\\Users\\trant\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories\\zSubscription.Repositories.QuangTT.csproj": {
+                "projectPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories\\zSubscription.Repositories.QuangTT.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.318/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

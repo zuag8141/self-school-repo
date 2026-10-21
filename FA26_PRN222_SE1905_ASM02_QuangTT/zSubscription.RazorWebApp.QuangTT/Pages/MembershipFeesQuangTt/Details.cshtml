@@ -1,0 +1,44 @@
+@page "{id:int}"
+@model zSubscription.RazorWebApp.QuangTT.Pages.MembershipFeesQuangTt.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+    var item = Model.MembershipFee;
+}
+
+<h1 class="h3">Details</h1>
+<div>
+    <h4 class="text-muted">MembershipFeeQuangTt</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.MemberName)</dt>
+        <dd class="col-sm-9">@item.MemberName</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.Amount)</dt>
+        <dd class="col-sm-9">@item.Amount.ToString("N2")</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.PaymentDate)</dt>
+        <dd class="col-sm-9">@item.PaymentDate.ToString("dd/MM/yyyy")</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.PaymentMethod)</dt>
+        <dd class="col-sm-9">@item.PaymentMethod</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.TransactionCode)</dt>
+        <dd class="col-sm-9">@item.TransactionCode</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.StartDate)</dt>
+        <dd class="col-sm-9">@(item.StartDate?.ToString("dd/MM/yyyy") ?? "-")</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.EndDate)</dt>
+        <dd class="col-sm-9">@(item.EndDate?.ToString("dd/MM/yyyy") ?? "-")</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.Notes)</dt>
+        <dd class="col-sm-9">@item.Notes</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.Status)</dt>
+        <dd class="col-sm-9">@item.Status</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.PublishDate)</dt>
+        <dd class="col-sm-9">@(item.PublishDate?.ToString("dd/MM/yyyy") ?? "-")</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.UpdateAt)</dt>
+        <dd class="col-sm-9">@(item.UpdateAt?.ToString("dd/MM/yyyy HH:mm") ?? "-")</dd>
+        <dt class="col-sm-3">@Html.DisplayNameFor(_ => item.IsActive)</dt>
+        <dd class="col-sm-9">@(item.IsActive ? "Active" : "Inactive")</dd>
+        <dt class="col-sm-3">Package</dt>
+        <dd class="col-sm-9">@(item.FeePackageQuangTt?.PackageName ?? "-")</dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@item.MembershipFeeQuangTtid" class="btn btn-primary">Edit</a>
+    <a asp-page="./Index" class="btn btn-outline-secondary">Back to List</a>
+</div>

@@ -1,0 +1,81 @@
+@page "{id:int}"
+@model zSubscription.RazorWebApp.QuangTT.Pages.MembershipFeesQuangTt.EditModel
+@{
+    ViewData["Title"] = "Edit Membership Fee";
+}
+
+<h1 class="h3">Edit</h1>
+<h4 class="text-muted">MembershipFeeQuangTt</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post" class="compact-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MembershipFee.MembershipFeeQuangTtid" />
+
+            <div class="mb-3">
+                <label asp-for="MembershipFee.MemberName" class="form-label"></label>
+                <input asp-for="MembershipFee.MemberName" class="form-control" />
+                <span asp-validation-for="MembershipFee.MemberName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MembershipFee.Amount" class="form-label"></label>
+                <input asp-for="MembershipFee.Amount" class="form-control" />
+                <span asp-validation-for="MembershipFee.Amount" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MembershipFee.PaymentDate" class="form-label"></label>
+                <input asp-for="MembershipFee.PaymentDate" class="form-control" />
+                <span asp-validation-for="MembershipFee.PaymentDate" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MembershipFee.PaymentMethod" class="form-label"></label>
+                <input asp-for="MembershipFee.PaymentMethod" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="MembershipFee.TransactionCode" class="form-label"></label>
+                <input asp-for="MembershipFee.TransactionCode" class="form-control" />
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="MembershipFee.StartDate" class="form-label"></label>
+                    <input asp-for="MembershipFee.StartDate" class="form-control" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="MembershipFee.EndDate" class="form-label"></label>
+                    <input asp-for="MembershipFee.EndDate" class="form-control" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MembershipFee.Notes" class="form-label"></label>
+                <input asp-for="MembershipFee.Notes" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="MembershipFee.Status" class="form-label"></label>
+                <input asp-for="MembershipFee.Status" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="MembershipFee.PublishDate" class="form-label"></label>
+                <input asp-for="MembershipFee.PublishDate" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="MembershipFee.FeePackageQuangTtid" class="form-label">Fee Package</label>
+                <select asp-for="MembershipFee.FeePackageQuangTtid" class="form-select" asp-items="ViewBag.FeePackageQuangTtid">
+                    <option value="">-- Select package --</option>
+                </select>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" asp-for="MembershipFee.IsActive" />
+                <label class="form-check-label" asp-for="MembershipFee.IsActive"></label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-page="Index" class="btn btn-outline-secondary">Back to List</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

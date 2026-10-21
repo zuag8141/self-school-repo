@@ -1,0 +1,35 @@
+@page "{id:int}"
+@model zSubscription.RazorWebApp.QuangTT.Pages.MembershipFeesQuangTt.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+    var item = Model.MembershipFee;
+}
+
+<h1 class="h3">Delete</h1>
+<h3 class="h5 text-danger">Are you sure you want to delete this?</h3>
+<div>
+    <h4 class="text-muted">MembershipFeeQuangTt</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Member</dt>
+        <dd class="col-sm-9">@item.MemberName</dd>
+        <dt class="col-sm-3">Amount</dt>
+        <dd class="col-sm-9">@item.Amount.ToString("N2")</dd>
+        <dt class="col-sm-3">Payment Date</dt>
+        <dd class="col-sm-9">@item.PaymentDate.ToString("dd/MM/yyyy")</dd>
+        <dt class="col-sm-3">Payment Method</dt>
+        <dd class="col-sm-9">@item.PaymentMethod</dd>
+        <dt class="col-sm-3">Transaction Code</dt>
+        <dd class="col-sm-9">@item.TransactionCode</dd>
+        <dt class="col-sm-3">Package</dt>
+        <dd class="col-sm-9">@(item.FeePackageQuangTt?.PackageName ?? "-")</dd>
+        <dt class="col-sm-3">Active</dt>
+        <dd class="col-sm-9">@(item.IsActive ? "Yes" : "No")</dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="MembershipFee.MembershipFeeQuangTtid" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-page="./Index" class="btn btn-outline-secondary">Back to List</a>
+    </form>
+</div>

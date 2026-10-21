@@ -1,0 +1,10 @@
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM01_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.csproj.AssemblyReference.cache
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM01_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM01_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.AssemblyInfoInputs.cache
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM01_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.AssemblyInfo.cs
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM01_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.csproj.CoreCompileInputs.cache
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM02_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.csproj.AssemblyReference.cache
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM02_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM02_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.AssemblyInfoInputs.cache
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM02_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.AssemblyInfo.cs
+C:\Users\trant\source\repos\FA26_PRN222_SE1905_ASM02_QuangTT\zSubscription.Services.QuangTT\obj\Debug\net9.0\zSubscription.Services.QuangTT.csproj.CoreCompileInputs.cache

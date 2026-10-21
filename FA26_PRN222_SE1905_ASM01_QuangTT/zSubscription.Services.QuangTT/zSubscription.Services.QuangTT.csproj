@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyName>zSubscription.Services.QuangTT</AssemblyName>
+		<RootNamespace>zSubscription.Services.QuangTT</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\zSubscription.Repositories.QuangTT\zSubscription.Repositories.QuangTT.csproj" />
+	</ItemGroup>
+</Project>
