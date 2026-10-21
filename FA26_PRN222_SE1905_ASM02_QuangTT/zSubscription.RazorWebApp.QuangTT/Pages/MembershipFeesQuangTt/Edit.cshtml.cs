@@ -1,43 +1,34 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.SignalR;
 using zSubscription.Entities.QuangTT.Models;
-using zSubscription.RazorWebApp.QuangTT.Hubs;
 using zSubscription.Services.QuangTT;
 
 namespace zSubscription.RazorWebApp.QuangTT.Pages.MembershipFeesQuangTt;
 
 [Authorize]
-public class EditModel : PageModel
+public class EditModel : MembershipFeeFormPageModel
 {
     private readonly IMembershipFeeQuangTtService _membershipFeeService;
     private readonly IFeePackageQuangTtService _feePackageService;
-    private readonly IHubContext<MembershipFeeHub> _hubContext;
 
     public EditModel(
         IMembershipFeeQuangTtService membershipFeeService,
-        IFeePackageQuangTtService feePackageService,
-        IHubContext<MembershipFeeHub> hubContext)
+        IFeePackageQuangTtService feePackageService)
     {
         _membershipFeeService = membershipFeeService;
         _feePackageService = feePackageService;
-        _hubContext = hubContext;
     }
-
-    [BindProperty]
-    public MembershipFeeQuangTt MembershipFee { get; set; } = new();
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (id == null)
+        if (id is null)
         {
             return NotFound();
         }
 
         var item = await _membershipFeeService.GetByIdAsync(id.Value);
-        if (item == null)
+        if (item is null)
         {
             return NotFound();
         }
@@ -49,21 +40,21 @@ public class EditModel : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
-        ModelState.Remove("MembershipFee.FeePackageQuangTt");
+        RemoveNavigationErrors();
+
         if (!ModelState.IsValid)
         {
             await LoadPackagesAsync();
             return Page();
         }
 
-        await _membershipFeeService.UpdateAsync(MembershipFee);
-        await _hubContext.Clients.All.SendAsync("MembershipFeeChanged", new
+        var updated = await _membershipFeeService.UpdateAsync(MembershipFee);
+        if (!updated)
         {
-            Action = "updated",
-            MemberName = MembershipFee.MemberName,
-            ChangedAt = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy")
-        });
+            return NotFound();
+        }
 
+        TempData["Success"] = $"Đã cập nhật khoản phí #{MembershipFee.MembershipFeeQuangTtid}.";
         return RedirectToPage("./Index");
     }
 
@@ -72,8 +63,20 @@ public class EditModel : PageModel
         var packages = await _feePackageService.GetAllAsync();
         ViewData["FeePackageQuangTtid"] = new SelectList(
             packages,
-            "FeePackageQuangTtid",
-            "PackageName",
+            nameof(FeePackageQuangTt.FeePackageQuangTtid),
+            nameof(FeePackageQuangTt.PackageName),
             MembershipFee.FeePackageQuangTtid);
+    }
+
+    private void RemoveNavigationErrors()
+    {
+        var keys = ModelState.Keys
+            .Where(k => k.Contains("FeePackageQuangTt", StringComparison.OrdinalIgnoreCase))
+            .ToList();
+
+        foreach (var key in keys)
+        {
+            ModelState.Remove(key);
+        }
     }
 }

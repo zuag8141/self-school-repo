@@ -1,21 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using zSubscription.Entities.QuangTT.Models;
+using zSubscription.Repositories.QuangTT.Base;
 using zSubscription.Repositories.QuangTT.DBContext;
 
-namespace zSubscription.Repositories.QuangTT
+namespace zSubscription.Repositories.QuangTT;
+
+public class SystemUserAccountRepository : GenericRepository<SystemUserAccount>
 {
-     class SystemUserAccountRepository : GenericRepository<SystemUserAccount>
+    public SystemUserAccountRepository(PRN222Context context) : base(context)
     {
-        public SystemUserAccountRepository() => _context ??= new PRN222Context();
-        public SystemUserAccountRepository(PRN222Context context) => _context = context;
-        public async Task<SystemUserAccount> GetByUserNameAsync(string userName, string password)
-        {
-            return await _context.SystemUserAccounts.FirstOrDefaultAsync(u => u.Email == userName && u.Password == password && u.IsActive);
-        }
+    }
+
+    public async Task<SystemUserAccount?> GetUserAccountAsync(string userName, string password)
+    {
+        return await _context.SystemUserAccounts
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x =>
+                x.UserName == userName &&
+                x.Password == password &&
+                x.IsActive);
     }
 }

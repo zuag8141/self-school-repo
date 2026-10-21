@@ -1,73 +1,77 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\",
+  "WorkspaceRootPath": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\imembershipfeequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|solutionrelative:zsubscription.services.quangtt\\imembershipfeequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41248777-814D-4509-86A2-61A2E6368069}|zSubscription.MVCWebApp.QuangTT\\zSubscription.MVCWebApp.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.mvcwebapp.quangtt\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41248777-814D-4509-86A2-61A2E6368069}|zSubscription.MVCWebApp.QuangTT\\zSubscription.MVCWebApp.QuangTT.csproj|solutionrelative:zsubscription.mvcwebapp.quangtt\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\membershipfeequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\membershipfeequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|solutionrelative:zsubscription.services.quangtt\\membershipfeequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\isystemuseraccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\imembershipfeequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|solutionrelative:zsubscription.services.quangtt\\imembershipfeequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\isystemuseraccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|solutionrelative:zsubscription.services.quangtt\\isystemuseraccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\ifeepackagequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\ifeepackagequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|solutionrelative:zsubscription.services.quangtt\\ifeepackagequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\feepackagequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\feepackagequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|solutionrelative:zsubscription.services.quangtt\\feepackagequangttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\membershipfeequangttrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\membershipfeequangttrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|solutionrelative:zsubscription.repositories.quangtt\\membershipfeequangttrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\systemuseraccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\systemuseraccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|solutionrelative:zsubscription.services.quangtt\\systemuseraccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.entities.quangtt\\models\\membershipfeequangtt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.entities.quangtt\\models\\membershipfeequangtt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|solutionrelative:zsubscription.entities.quangtt\\models\\membershipfeequangtt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\dbcontext\\prn222context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\dbcontext\\prn222context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|solutionrelative:zsubscription.repositories.quangtt\\dbcontext\\prn222context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\base\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\base\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|solutionrelative:zsubscription.repositories.quangtt\\base\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\systemuseraccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\systemuseraccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|solutionrelative:zsubscription.repositories.quangtt\\systemuseraccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\feepackagequangttrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\feepackagequangttrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|solutionrelative:zsubscription.repositories.quangtt\\feepackagequangttrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.entities.quangtt\\models\\feepackagequangtt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.entities.quangtt\\models\\feepackagequangtt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|solutionrelative:zsubscription.entities.quangtt\\models\\feepackagequangtt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\zsubscription.services.quangtt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.services.quangtt\\zsubscription.services.quangtt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{C21933ED-578D-C0B3-CA9B-F435CE609ABD}|zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj|solutionrelative:zsubscription.services.quangtt\\zsubscription.services.quangtt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.entities.quangtt\\models\\systemuseraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.entities.quangtt\\models\\systemuseraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|solutionrelative:zsubscription.entities.quangtt\\models\\systemuseraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.entities.quangtt\\zsubscription.entities.quangtt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.entities.quangtt\\zsubscription.entities.quangtt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{96D428AA-0953-40A5-5E59-95E714DF124B}|zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj|solutionrelative:zsubscription.entities.quangtt\\zsubscription.entities.quangtt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\source\\repos\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\zsubscription.repositories.quangtt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|c:\\users\\trant\\onedrive\\documents\\github\\self-school-repo\\fa26_prn222_se1905_asm01_quangtt\\zsubscription.repositories.quangtt\\zsubscription.repositories.quangtt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{9B3F94AA-4D72-49C7-BCC4-A3667E351D42}|zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj|solutionrelative:zsubscription.repositories.quangtt\\zsubscription.repositories.quangtt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -81,225 +85,225 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MembershipFeeQuangTtService.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\MembershipFeeQuangTtService.cs",
-              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\MembershipFeeQuangTtService.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\MembershipFeeQuangTtService.cs",
-              "RelativeToolTip": "zSubscription.Services.QuangTT\\MembershipFeeQuangTtService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-18T08:43:48.647Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{55f480fa-fbef-4386-8c1c-ea8d10c9f542}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "iMembershipFeeQuangTtService.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\iMembershipFeeQuangTtService.cs",
-              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\iMembershipFeeQuangTtService.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\iMembershipFeeQuangTtService.cs",
-              "RelativeToolTip": "zSubscription.Services.QuangTT\\iMembershipFeeQuangTtService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.MVCWebApp.QuangTT\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "zSubscription.MVCWebApp.QuangTT\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.MVCWebApp.QuangTT\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "zSubscription.MVCWebApp.QuangTT\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-18T08:37:37.438Z",
+              "WhenOpened": "2026-09-18T09:56:16.552Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FeePackageQuangTtService.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\FeePackageQuangTtService.cs",
-              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\FeePackageQuangTtService.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\FeePackageQuangTtService.cs",
-              "RelativeToolTip": "zSubscription.Services.QuangTT\\FeePackageQuangTtService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABBAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "MembershipFeeQuangTtService.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\MembershipFeeQuangTtService.cs",
+              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\MembershipFeeQuangTtService.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\MembershipFeeQuangTtService.cs",
+              "RelativeToolTip": "zSubscription.Services.QuangTT\\MembershipFeeQuangTtService.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAcwEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T09:39:35.444Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "iFeePackageQuangTtService.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\iFeePackageQuangTtService.cs",
-              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\iFeePackageQuangTtService.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\iFeePackageQuangTtService.cs",
-              "RelativeToolTip": "zSubscription.Services.QuangTT\\iFeePackageQuangTtService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T09:38:43.01Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SystemUserAccountService.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\SystemUserAccountService.cs",
-              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\SystemUserAccountService.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\SystemUserAccountService.cs",
-              "RelativeToolTip": "zSubscription.Services.QuangTT\\SystemUserAccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T09:31:35.858Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-18T08:43:48.647Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "iSystemUserAccountService.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\iSystemUserAccountService.cs",
-              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\iSystemUserAccountService.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\iSystemUserAccountService.cs",
-              "RelativeToolTip": "zSubscription.Services.QuangTT\\iSystemUserAccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Title": "IMembershipFeeQuangTtService.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\IMembershipFeeQuangTtService.cs",
+              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\IMembershipFeeQuangTtService.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\IMembershipFeeQuangTtService.cs",
+              "RelativeToolTip": "zSubscription.Services.QuangTT\\IMembershipFeeQuangTtService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T09:29:45.707Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FeePackageQuangTtRepository.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\FeePackageQuangTtRepository.cs",
-              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\FeePackageQuangTtRepository.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\FeePackageQuangTtRepository.cs",
-              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\FeePackageQuangTtRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T09:11:07.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "FeePackageQuangTt.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\FeePackageQuangTt.cs",
-              "RelativeDocumentMoniker": "zSubscription.Entities.QuangTT\\Models\\FeePackageQuangTt.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\FeePackageQuangTt.cs",
-              "RelativeToolTip": "zSubscription.Entities.QuangTT\\Models\\FeePackageQuangTt.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T09:09:24.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-18T08:37:37.438Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "MembershipFeeQuangTtRepository.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\MembershipFeeQuangTtRepository.cs",
-              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\MembershipFeeQuangTtRepository.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\MembershipFeeQuangTtRepository.cs",
-              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\MembershipFeeQuangTtRepository.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAWwBAAAAA2AAAAAAAAAA==",
+              "Title": "FeePackageQuangTtService.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\FeePackageQuangTtService.cs",
+              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\FeePackageQuangTtService.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\FeePackageQuangTtService.cs",
+              "RelativeToolTip": "zSubscription.Services.QuangTT\\FeePackageQuangTtService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T09:07:08.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-15T09:39:35.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IFeePackageQuangTtService.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\IFeePackageQuangTtService.cs",
+              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\IFeePackageQuangTtService.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\IFeePackageQuangTtService.cs",
+              "RelativeToolTip": "zSubscription.Services.QuangTT\\IFeePackageQuangTtService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T09:38:43.01Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "MembershipFeeQuangTt.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\MembershipFeeQuangTt.cs",
-              "RelativeDocumentMoniker": "zSubscription.Entities.QuangTT\\Models\\MembershipFeeQuangTt.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\MembershipFeeQuangTt.cs",
-              "RelativeToolTip": "zSubscription.Entities.QuangTT\\Models\\MembershipFeeQuangTt.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Title": "SystemUserAccountService.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\SystemUserAccountService.cs",
+              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\SystemUserAccountService.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\SystemUserAccountService.cs",
+              "RelativeToolTip": "zSubscription.Services.QuangTT\\SystemUserAccountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T09:05:45.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-15T09:31:35.858Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "zSubscription.Repositories.QuangTT.csproj",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
-              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
-              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-09-15T08:57:52.965Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "zSubscription.Entities.QuangTT.csproj",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
-              "RelativeDocumentMoniker": "zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
-              "RelativeToolTip": "zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-09-15T08:57:46.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SystemUserAccountRepository.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\SystemUserAccountRepository.cs",
-              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\SystemUserAccountRepository.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\SystemUserAccountRepository.cs",
-              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\SystemUserAccountRepository.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAWwBEAAAATAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ISystemUserAccountService.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\ISystemUserAccountService.cs",
+              "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\ISystemUserAccountService.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\ISystemUserAccountService.cs",
+              "RelativeToolTip": "zSubscription.Services.QuangTT\\ISystemUserAccountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T08:51:03.217Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-15T09:29:45.707Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "SystemUserAccount.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\SystemUserAccount.cs",
-              "RelativeDocumentMoniker": "zSubscription.Entities.QuangTT\\Models\\SystemUserAccount.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\SystemUserAccount.cs",
-              "RelativeToolTip": "zSubscription.Entities.QuangTT\\Models\\SystemUserAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "FeePackageQuangTtRepository.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\FeePackageQuangTtRepository.cs",
+              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\FeePackageQuangTtRepository.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\FeePackageQuangTtRepository.cs",
+              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\FeePackageQuangTtRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T08:50:05.617Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\Base\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\Base\\GenericRepository.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\Base\\GenericRepository.cs",
-              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\Base\\GenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T08:46:49.925Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PRN222Context.cs",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\DBContext\\PRN222Context.cs",
-              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\DBContext\\PRN222Context.cs",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\DBContext\\PRN222Context.cs",
-              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\DBContext\\PRN222Context.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T08:44:28.839Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-15T09:11:07.928Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
+              "Title": "FeePackageQuangTt.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\FeePackageQuangTt.cs",
+              "RelativeDocumentMoniker": "zSubscription.Entities.QuangTT\\Models\\FeePackageQuangTt.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\FeePackageQuangTt.cs",
+              "RelativeToolTip": "zSubscription.Entities.QuangTT\\Models\\FeePackageQuangTt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T09:09:24.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MembershipFeeQuangTtRepository.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\MembershipFeeQuangTtRepository.cs",
+              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\MembershipFeeQuangTtRepository.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\MembershipFeeQuangTtRepository.cs",
+              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\MembershipFeeQuangTtRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAWwBAAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T09:07:08.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MembershipFeeQuangTt.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\MembershipFeeQuangTt.cs",
+              "RelativeDocumentMoniker": "zSubscription.Entities.QuangTT\\Models\\MembershipFeeQuangTt.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\MembershipFeeQuangTt.cs",
+              "RelativeToolTip": "zSubscription.Entities.QuangTT\\Models\\MembershipFeeQuangTt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T09:05:45.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "zSubscription.Repositories.QuangTT.csproj",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
+              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
+              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-09-15T08:57:52.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "zSubscription.Entities.QuangTT.csproj",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
+              "RelativeDocumentMoniker": "zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
+              "RelativeToolTip": "zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-09-15T08:57:46.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SystemUserAccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\SystemUserAccountRepository.cs",
+              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\SystemUserAccountRepository.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\SystemUserAccountRepository.cs",
+              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\SystemUserAccountRepository.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAWwBEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T08:51:03.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SystemUserAccount.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\SystemUserAccount.cs",
+              "RelativeDocumentMoniker": "zSubscription.Entities.QuangTT\\Models\\SystemUserAccount.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Entities.QuangTT\\Models\\SystemUserAccount.cs",
+              "RelativeToolTip": "zSubscription.Entities.QuangTT\\Models\\SystemUserAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T08:50:05.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\Base\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\Base\\GenericRepository.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\Base\\GenericRepository.cs",
+              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\Base\\GenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T08:46:49.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PRN222Context.cs",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\DBContext\\PRN222Context.cs",
+              "RelativeDocumentMoniker": "zSubscription.Repositories.QuangTT\\DBContext\\PRN222Context.cs",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Repositories.QuangTT\\DBContext\\PRN222Context.cs",
+              "RelativeToolTip": "zSubscription.Repositories.QuangTT\\DBContext\\PRN222Context.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T08:44:28.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "zSubscription.Services.QuangTT.csproj",
-              "DocumentMoniker": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj",
+              "DocumentMoniker": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj",
               "RelativeDocumentMoniker": "zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj",
-              "ToolTip": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj",
+              "ToolTip": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM01_QuangTT\\zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj",
               "RelativeToolTip": "zSubscription.Services.QuangTT\\zSubscription.Services.QuangTT.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-09-15T08:30:48.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-15T08:30:48.765Z"
             }
           ]
         }

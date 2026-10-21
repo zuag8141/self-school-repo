@@ -4,18 +4,44 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="text-center py-4">
-    <h1 class="display-6">zSubscription Razor WebApp</h1>
-    <p class="lead text-muted">ASM2 - Razor Pages CRUD + SignalR CRUD (MSSQL)</p>
-    <div class="d-flex justify-content-center gap-2 flex-wrap">
-        @if (User.Identity?.IsAuthenticated == true)
-        {
-            <a class="btn btn-primary" asp-page="/MembershipFeesQuangTt/Index">Membership Fees CRUD</a>
-            <a class="btn btn-success" asp-page="/MembershipFeesQuangTt/SignalR">SignalR CRUD</a>
-        }
-        else
-        {
-            <a class="btn btn-primary" asp-page="/Account/Login">Login to continue</a>
-        }
+<div class="p-4 p-md-5 mb-4 bg-white rounded-3 shadow-sm">
+    <h1 class="display-6 fw-semibold">ASM2 · ASP.NET Core Razor Pages</h1>
+    <p class="lead mb-2">Quản lý <strong>Membership Fees</strong> với CRUD, tìm kiếm 3 tiêu chí và phân trang jQuery.</p>
+    <p class="text-muted mb-4">Assignment này không dùng SignalR. Đăng nhập bằng tài khoản mẫu trong script SQL.</p>
+
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <a class="btn btn-primary btn-lg" asp-page="/MembershipFeesQuangTt/Index">Mở Membership Fees</a>
+    }
+    else
+    {
+        <a class="btn btn-primary btn-lg" asp-page="/Account/Login">Đăng nhập để tiếp tục</a>
+    }
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5">Razor Pages CRUD</h2>
+                <p class="text-muted mb-0">Create / Details / Edit / Delete với PageModel và handler OnGet/OnPost.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5">Cookie Authentication</h2>
+                <p class="text-muted mb-0">Đăng nhập bằng bảng <code>System.UserAccount</code>.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5">Search &amp; Pagination</h2>
+                <p class="text-muted mb-0">Tìm theo tên hội viên, phương thức thanh toán, tên gói; phân trang jQuery.</p>
+            </div>
+        </div>
     </div>
 </div>

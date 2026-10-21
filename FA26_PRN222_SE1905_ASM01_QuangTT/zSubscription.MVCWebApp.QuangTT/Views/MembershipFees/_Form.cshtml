@@ -1,0 +1,69 @@
+@model zSubscription.Entities.QuangTT.Models.MembershipFeeQuangTt
+
+<div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+<div class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="MemberName" class="form-label"></label>
+        <input asp-for="MemberName" class="form-control" placeholder="VD: Nguyễn Văn An" />
+        <span asp-validation-for="MemberName" class="text-danger small"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Amount" class="form-label"></label>
+        <input asp-for="Amount" type="number" min="0.01" step="0.01" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger small"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="PaymentDate" class="form-label"></label>
+        <input asp-for="PaymentDate" type="date" class="form-control" />
+        <span asp-validation-for="PaymentDate" class="text-danger small"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="PaymentMethod" class="form-label"></label>
+        <input asp-for="PaymentMethod" class="form-control" placeholder="Cash / Banking / Momo..." />
+        <span asp-validation-for="PaymentMethod" class="text-danger small"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="TransactionCode" class="form-label"></label>
+        <input asp-for="TransactionCode" class="form-control" placeholder="VD: GD-2026-001" />
+        <span asp-validation-for="TransactionCode" class="text-danger small"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="FeePackageQuangTtid" class="form-label"></label>
+        <select asp-for="FeePackageQuangTtid" asp-items="ViewBag.FeePackages" class="form-select">
+            <option value="">-- Chọn gói phí --</option>
+        </select>
+        <span asp-validation-for="FeePackageQuangTtid" class="text-danger small"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="StartDate" class="form-label"></label>
+        <input asp-for="StartDate" type="date" class="form-control" />
+        <span asp-validation-for="StartDate" class="text-danger small"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="EndDate" class="form-label"></label>
+        <input asp-for="EndDate" type="date" class="form-control" />
+        <span asp-validation-for="EndDate" class="text-danger small"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Status" class="form-label"></label>
+        <input asp-for="Status" type="number" class="form-control" placeholder="0/1/2" />
+        <span asp-validation-for="Status" class="text-danger small"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="PublishDate" class="form-label"></label>
+        <input asp-for="PublishDate" type="date" class="form-control" />
+        <span asp-validation-for="PublishDate" class="text-danger small"></span>
+    </div>
+    <div class="col-md-4 d-flex align-items-end">
+        <div class="form-check mb-2">
+            <input asp-for="IsActive" class="form-check-input" />
+            <label asp-for="IsActive" class="form-check-label"></label>
+        </div>
+    </div>
+    <div class="col-12">
+        <label asp-for="Notes" class="form-label"></label>
+        <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Notes" class="text-danger small"></span>
+    </div>
+</div>

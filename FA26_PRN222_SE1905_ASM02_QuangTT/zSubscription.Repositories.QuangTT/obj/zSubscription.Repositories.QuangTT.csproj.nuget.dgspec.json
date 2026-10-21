@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj": {}
+    "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj": {}
   },
   "projects": {
-    "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj": {
+    "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
+        "projectUniqueName": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
         "projectName": "zSubscription.Entities.QuangTT",
-        "projectPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
+        "projectPath": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj",
         "packagesPath": "C:\\Users\\trant\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\obj\\",
+        "outputPath": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,12 +49,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[8.0.31, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -75,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj": {
+    "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
+        "projectUniqueName": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
         "projectName": "zSubscription.Repositories.QuangTT",
-        "projectPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
+        "projectPath": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\zSubscription.Repositories.QuangTT.csproj",
         "packagesPath": "C:\\Users\\trant\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\obj\\",
+        "outputPath": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Repositories.QuangTT\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -103,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj": {
-                "projectPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj"
+              "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj": {
+                "projectPath": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM02_QuangTT\\zSubscription.Entities.QuangTT\\zSubscription.Entities.QuangTT.csproj"
               }
             }
           }
@@ -125,7 +119,7 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.31, )"
             },
@@ -135,7 +129,7 @@
             },
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.0.0, )"
             }
           },
           "imports": [

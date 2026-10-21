@@ -1,27 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using zSubscription.Entities.QuangTT.Models;
+﻿using zSubscription.Entities.QuangTT.Models;
+using zSubscription.Repositories.QuangTT;
 
-namespace zSubscription.Services.QuangTT
+namespace zSubscription.Services.QuangTT;
+
+public class SystemUserAccountService : ISystemUserAccountService
 {
-    public class SystemUserAccountService : ISystemUserAccountService
-    {
-        private readonly SystemUserAccountService _repository;
-        public async Task<SystemUserAccount> GetUserAccount(string userName, string password)
-        {
-            try 
-            { 
-                return await _repository.GetUserAccount(userName, password);
-            }
-            catch (Exception ex)
-            {
+    private readonly SystemUserAccountRepository _repository;
 
-                throw new Exception($"Error in GetUserAccount: ", ex);
-            }
-            //throw new NotImplementedException();
-        }
+    public SystemUserAccountService(SystemUserAccountRepository repository)
+    {
+        _repository = repository;
     }
+
+    public Task<SystemUserAccount?> GetUserAccountAsync(string userName, string password)
+        => _repository.GetUserAccountAsync(userName, password);
 }

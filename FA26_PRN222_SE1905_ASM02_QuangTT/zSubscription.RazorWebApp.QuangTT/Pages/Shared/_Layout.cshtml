@@ -1,18 +1,18 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - zSubscription.RazorWebApp.QuangTT</title>
+    <title>@ViewData["Title"] - ASM2 Razor Pages</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/zSubscription.RazorWebApp.QuangTT.styles.css" asp-append-version="true" />
 </head>
-<body class="app-gradient-bg">
+<body class="bg-light">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary bg-gradient border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary bg-gradient border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">zSubscription Razor</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">ASM2 · Razor Pages</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -25,10 +25,7 @@
                         @if (User.Identity?.IsAuthenticated == true)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/MembershipFeesQuangTt/Index">CRUD</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/MembershipFeesQuangTt/SignalR">SignalR CRUD</a>
+                                <a class="nav-link text-white" asp-area="" asp-page="/MembershipFeesQuangTt/Index">Membership Fees</a>
                             </li>
                         }
                         <li class="nav-item">
@@ -58,20 +55,21 @@
             </div>
         </nav>
     </header>
-    <div class="container app-content">
+    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-white-50 bg-primary bg-gradient">
+    <footer class="border-top footer text-muted bg-white">
         <div class="container">
-            &copy; 2026 - zSubscription.RazorWebApp.QuangTT - <a class="link-light" asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2026 - FA26_PRN222_SE1905_ASM02_QuangTT - Razor Pages
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/table-pagination.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)

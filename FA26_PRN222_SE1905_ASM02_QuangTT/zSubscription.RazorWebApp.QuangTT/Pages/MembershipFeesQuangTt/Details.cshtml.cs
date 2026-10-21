@@ -20,13 +20,13 @@ public class DetailsModel : PageModel
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (id == null)
+        if (id is null)
         {
             return NotFound();
         }
 
         var item = await _membershipFeeService.GetByIdAsync(id.Value);
-        if (item == null)
+        if (item is null)
         {
             return NotFound();
         }

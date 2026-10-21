@@ -2,32 +2,24 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.SignalR;
 using zSubscription.Entities.QuangTT.Models;
-using zSubscription.RazorWebApp.QuangTT.Hubs;
 using zSubscription.Services.QuangTT;
 
 namespace zSubscription.RazorWebApp.QuangTT.Pages.MembershipFeesQuangTt;
 
 [Authorize]
-public class CreateModel : PageModel
+public class CreateModel : MembershipFeeFormPageModel
 {
     private readonly IMembershipFeeQuangTtService _membershipFeeService;
     private readonly IFeePackageQuangTtService _feePackageService;
-    private readonly IHubContext<MembershipFeeHub> _hubContext;
 
     public CreateModel(
         IMembershipFeeQuangTtService membershipFeeService,
-        IFeePackageQuangTtService feePackageService,
-        IHubContext<MembershipFeeHub> hubContext)
+        IFeePackageQuangTtService feePackageService)
     {
         _membershipFeeService = membershipFeeService;
         _feePackageService = feePackageService;
-        _hubContext = hubContext;
     }
-
-    [BindProperty]
-    public MembershipFeeQuangTt MembershipFee { get; set; } = new();
 
     public async Task OnGetAsync()
     {
@@ -37,12 +29,14 @@ public class CreateModel : PageModel
             PublishDate = DateTime.Today,
             IsActive = true
         };
+
         await LoadPackagesAsync();
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
-        ModelState.Remove("MembershipFee.FeePackageQuangTt");
+        RemoveNavigationErrors();
+
         if (!ModelState.IsValid)
         {
             await LoadPackagesAsync();
@@ -50,13 +44,7 @@ public class CreateModel : PageModel
         }
 
         await _membershipFeeService.CreateAsync(MembershipFee);
-        await _hubContext.Clients.All.SendAsync("MembershipFeeChanged", new
-        {
-            Action = "created",
-            MemberName = MembershipFee.MemberName,
-            ChangedAt = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy")
-        });
-
+        TempData["Success"] = $"Đã tạo khoản phí cho \"{MembershipFee.MemberName}\".";
         return RedirectToPage("./Index");
     }
 
@@ -65,8 +53,20 @@ public class CreateModel : PageModel
         var packages = await _feePackageService.GetAllAsync();
         ViewData["FeePackageQuangTtid"] = new SelectList(
             packages,
-            "FeePackageQuangTtid",
-            "PackageName",
+            nameof(FeePackageQuangTt.FeePackageQuangTtid),
+            nameof(FeePackageQuangTt.PackageName),
             MembershipFee.FeePackageQuangTtid);
+    }
+
+    private void RemoveNavigationErrors()
+    {
+        var keys = ModelState.Keys
+            .Where(k => k.Contains("FeePackageQuangTt", StringComparison.OrdinalIgnoreCase))
+            .ToList();
+
+        foreach (var key in keys)
+        {
+            ModelState.Remove(key);
+        }
     }
 }

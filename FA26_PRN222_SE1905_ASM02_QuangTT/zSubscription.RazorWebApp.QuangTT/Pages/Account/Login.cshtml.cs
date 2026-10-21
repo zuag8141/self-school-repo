@@ -40,10 +40,10 @@ public class LoginModel : PageModel
             return Page();
         }
 
-        var account = await _userAccountService.GetUserAccount(Input.UserName, Input.Password);
-        if (account == null)
+        var account = await _userAccountService.GetUserAccountAsync(Input.UserName, Input.Password);
+        if (account is null)
         {
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            ModelState.AddModelError(string.Empty, "Sai tài khoản hoặc mật khẩu.");
             return Page();
         }
 

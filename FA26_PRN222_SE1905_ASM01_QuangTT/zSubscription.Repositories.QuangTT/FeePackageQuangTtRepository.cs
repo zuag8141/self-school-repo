@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using zSubscription.Entities.QuangTT.Models;
+using zSubscription.Repositories.QuangTT.Base;
 using zSubscription.Repositories.QuangTT.DBContext;
 
-namespace zSubscription.Repositories.QuangTT
+namespace zSubscription.Repositories.QuangTT;
+
+public class FeePackageQuangTtRepository : GenericRepository<FeePackageQuangTt>
 {
-    class FeePackageQuangTtRepository : GenericRepository<FeePackageQuangTt>
+    public FeePackageQuangTtRepository(PRN222Context context) : base(context)
     {
-        public FeePackageQuangTtRepository() => _context ??= new PRN222Context();
-        public FeePackageQuangTtRepository(PRN222Context context) => _context = context;
+    }
+
+    public override async Task<List<FeePackageQuangTt>> GetAllAsync()
+    {
+        return await _context.FeePackageQuangTts
+            .OrderBy(x => x.PackageName)
+            .ToListAsync();
     }
 }

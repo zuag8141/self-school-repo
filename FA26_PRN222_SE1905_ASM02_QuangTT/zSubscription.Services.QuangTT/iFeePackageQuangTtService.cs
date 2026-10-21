@@ -1,9 +1,8 @@
-﻿using zSubscription.Entities.QuangTT.Models;
+using zSubscription.Entities.QuangTT.Models;
 
-namespace zSubscription.Services.QuangTT
+namespace zSubscription.Services.QuangTT;
+
+public interface IFeePackageQuangTtService
 {
-    public interface IFeePackageQuangTtService
-    {
-        Task<List<FeePackageQuangTt>> GetAllAsync();
-    }
+    Task<List<FeePackageQuangTt>> GetAllAsync();
 }

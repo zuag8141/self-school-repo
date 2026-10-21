@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.SignalR;
 using zSubscription.Entities.QuangTT.Models;
-using zSubscription.RazorWebApp.QuangTT.Hubs;
 using zSubscription.Services.QuangTT;
 
 namespace zSubscription.RazorWebApp.QuangTT.Pages.MembershipFeesQuangTt;
@@ -12,28 +10,23 @@ namespace zSubscription.RazorWebApp.QuangTT.Pages.MembershipFeesQuangTt;
 public class DeleteModel : PageModel
 {
     private readonly IMembershipFeeQuangTtService _membershipFeeService;
-    private readonly IHubContext<MembershipFeeHub> _hubContext;
 
-    public DeleteModel(
-        IMembershipFeeQuangTtService membershipFeeService,
-        IHubContext<MembershipFeeHub> hubContext)
+    public DeleteModel(IMembershipFeeQuangTtService membershipFeeService)
     {
         _membershipFeeService = membershipFeeService;
-        _hubContext = hubContext;
     }
 
-    [BindProperty]
     public MembershipFeeQuangTt MembershipFee { get; set; } = new();
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (id == null)
+        if (id is null)
         {
             return NotFound();
         }
 
         var item = await _membershipFeeService.GetByIdAsync(id.Value);
-        if (item == null)
+        if (item is null)
         {
             return NotFound();
         }
@@ -42,25 +35,12 @@ public class DeleteModel : PageModel
         return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync(int? id)
+    public async Task<IActionResult> OnPostAsync(int id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var item = await _membershipFeeService.GetByIdAsync(id.Value);
-        if (item != null)
-        {
-            var memberName = item.MemberName;
-            await _membershipFeeService.DeleteAsync(id.Value);
-            await _hubContext.Clients.All.SendAsync("MembershipFeeChanged", new
-            {
-                Action = "deleted",
-                MemberName = memberName,
-                ChangedAt = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy")
-            });
-        }
+        var deleted = await _membershipFeeService.DeleteAsync(id);
+        TempData[deleted ? "Success" : "Error"] = deleted
+            ? $"Đã xoá khoản phí #{id}."
+            : $"Không tìm thấy khoản phí #{id}.";
 
         return RedirectToPage("./Index");
     }
