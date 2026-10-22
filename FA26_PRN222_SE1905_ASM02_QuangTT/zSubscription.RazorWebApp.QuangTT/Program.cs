@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using zSubscription.RazorWebApp.QuangTT.Hubs;
 using zSubscription.Repositories.QuangTT;
 using zSubscription.Repositories.QuangTT.DBContext;
 using zSubscription.Services.QuangTT;
@@ -7,6 +8,7 @@ using zSubscription.Services.QuangTT;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+builder.Services.AddSignalR();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -45,5 +47,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapHub<MembershipFeeHub>("/membershipFeeHub");
 
 app.Run();

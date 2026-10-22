@@ -4,10 +4,10 @@
 
 <div class="p-4 p-md-5 mb-4 bg-white rounded-3 shadow-sm">
     <h1 class="display-6 fw-semibold">ASM1 · ASP.NET Core MVC WebApp</h1>
-    <p class="lead mb-2">Quản lý <strong>Membership Fees</strong> với CRUD, tìm kiếm 3 tiêu chí, phân trang jQuery và SignalR CRUD.</p>
+    <p class="lead mb-2">Quản lý <strong>Membership Fees</strong> với CRUD, tìm kiếm 3 tiêu chí và phân trang jQuery.</p>
     <p class="text-muted mb-4">
-        Mọi thao tác Create / Update / Delete đều có 2 cách: form MVC thông thường và nút
-        <span class="badge bg-success">SignalR</span> nằm ngay bên cạnh.
+        Assignment này dùng MVC thuần. CRUD được thực hiện bằng Razor View, form POST
+        và Entity Framework Core.
     </p>
     <a asp-controller="MembershipFees" asp-action="Index" class="btn btn-primary btn-lg">Mở Membership Fees</a>
 </div>
@@ -24,16 +24,16 @@
     <div class="col-md-4">
         <div class="card h-100 shadow-sm">
             <div class="card-body">
-                <h2 class="h5">SignalR CRUD</h2>
-                <p class="text-muted mb-0">Create / Edit / Delete trực tiếp qua Hub, tự động làm mới danh sách realtime.</p>
+                <h2 class="h5">Tìm kiếm 3 tiêu chí</h2>
+                <p class="text-muted mb-0">Tìm theo tên hội viên, phương thức thanh toán và tên gói phí.</p>
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="card h-100 shadow-sm">
             <div class="card-body">
-                <h2 class="h5">Search &amp; Pagination</h2>
-                <p class="text-muted mb-0">Tìm theo tên hội viên, phương thức thanh toán, tên gói; phân trang bằng jQuery.</p>
+                <h2 class="h5">Phân trang jQuery</h2>
+                <p class="text-muted mb-0">Bảng dữ liệu được phân trang phía client bằng jQuery.</p>
             </div>
         </div>
     </div>

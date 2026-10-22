@@ -1,5 +1,6 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\js\membership-fees-signalr.js
 wwwroot\js\site.js
 wwwroot\js\table-pagination.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
@@ -59,3 +60,4 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\lib\signalr\signalr.min.js

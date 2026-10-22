@@ -1,13 +1,15 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using zSubscription.Entities.QuangTT.Models;
 using zSubscription.Services.QuangTT;
 
-namespace zSubscription.MVCWebApp.QuangTT.Hubs;
+namespace zSubscription.RazorWebApp.QuangTT.Hubs;
 
 /// <summary>
-/// Hub cho phép Create / Read / Update / Delete ngay trên trang Index
-/// (các nút "SignalR Create/Edit/Delete" nằm cạnh nút CRUD thường).
+/// SignalR CRUD hub for the ASM02 Membership Fees page.
+/// The page keeps its normal Razor Pages buttons and adds SignalR buttons next to them.
 /// </summary>
+[Authorize]
 public class MembershipFeeHub : Hub
 {
     private readonly IMembershipFeeQuangTtService _membershipFeeService;
@@ -49,6 +51,7 @@ public class MembershipFeeHub : Hub
     {
         var entity = MapDto(dto);
         entity.MembershipFeeQuangTtid = 0;
+        Validate(entity);
 
         var created = await _membershipFeeService.CreateAsync(entity);
         await BroadcastChangedAsync("created", created.MemberName);
@@ -57,15 +60,22 @@ public class MembershipFeeHub : Hub
 
     public async Task<bool> Update(MembershipFeeDto dto)
     {
-        var entity = MapDto(dto);
-        var updated = await _membershipFeeService.UpdateAsync(entity);
-
-        if (updated)
+        if (dto.MembershipFeeQuangTtid <= 0)
         {
-            await BroadcastChangedAsync("updated", entity.MemberName);
+            throw new HubException("Invalid membership fee id.");
         }
 
-        return updated;
+        var entity = MapDto(dto);
+        Validate(entity);
+
+        var updated = await _membershipFeeService.UpdateAsync(entity);
+        if (!updated)
+        {
+            throw new HubException("Membership fee was not found.");
+        }
+
+        await BroadcastChangedAsync("updated", entity.MemberName);
+        return true;
     }
 
     public async Task<bool> Delete(int id)
@@ -73,16 +83,30 @@ public class MembershipFeeHub : Hub
         var existing = await _membershipFeeService.GetByIdAsync(id);
         if (existing is null)
         {
-            return false;
+            throw new HubException("Membership fee was not found.");
         }
 
         var deleted = await _membershipFeeService.DeleteAsync(id);
-        if (deleted)
+        if (!deleted)
         {
-            await BroadcastChangedAsync("deleted", existing.MemberName);
+            throw new HubException("Could not delete membership fee.");
         }
 
-        return deleted;
+        await BroadcastChangedAsync("deleted", existing.MemberName);
+        return true;
+    }
+
+    private static void Validate(MembershipFeeQuangTt entity)
+    {
+        if (string.IsNullOrWhiteSpace(entity.MemberName))
+        {
+            throw new HubException("Member name is required.");
+        }
+
+        if (entity.Amount <= 0)
+        {
+            throw new HubException("Amount must be greater than 0.");
+        }
     }
 
     private Task BroadcastChangedAsync(string action, string? memberName)
@@ -124,7 +148,7 @@ public class MembershipFeeHub : Hub
         EndDate = dto.EndDate,
         Notes = dto.Notes,
         Status = dto.Status,
-        PublishDate = dto.PublishDate,
+        PublishDate = dto.PublishDate ?? DateTime.Today,
         FeePackageQuangTtid = dto.FeePackageQuangTtid,
         IsActive = dto.IsActive
     };

@@ -10,15 +10,11 @@
     <div>
         <h1 class="h3 mb-1">Membership Fees</h1>
         <p class="text-muted mb-0">
-            CRUD bằng MVC và CRUD bằng SignalR (các nút SignalR nằm ngay cạnh nút CRUD).
+            CRUD bằng MVC · tìm kiếm 3 tiêu chí · phân trang jQuery.
         </p>
     </div>
     <div class="d-flex flex-wrap gap-2">
         <a asp-action="Create" class="btn btn-primary">Create</a>
-        <button type="button" id="btnSignalRCreate" class="btn btn-success"
-                data-bs-toggle="modal" data-bs-target="#signalRModal">
-            SignalR Create
-        </button>
     </div>
 </div>
 
@@ -60,8 +56,6 @@
         </div>
     </div>
 </form>
-
-<div id="hubStatus" class="alert alert-secondary py-2 small">Đang kết nối SignalR...</div>
 
 <div class="card shadow-sm">
     <div class="table-responsive">
@@ -126,16 +120,8 @@
                                        class="btn btn-sm btn-outline-secondary">Details</a>
                                     <a asp-action="Edit" asp-route-id="@item.MembershipFeeQuangTtid"
                                        class="btn btn-sm btn-outline-primary">Edit</a>
-                                    <button type="button" class="btn btn-sm btn-outline-success btn-sr-edit"
-                                            data-id="@item.MembershipFeeQuangTtid">
-                                        SignalR Edit
-                                    </button>
                                     <a asp-action="Delete" asp-route-id="@item.MembershipFeeQuangTtid"
                                        class="btn btn-sm btn-outline-danger">Delete</a>
-                                    <button type="button" class="btn btn-sm btn-danger btn-sr-delete"
-                                            data-id="@item.MembershipFeeQuangTtid">
-                                        SignalR Delete
-                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -161,83 +147,7 @@
     </div>
 </div>
 
-<!-- Modal dùng cho SignalR Create / SignalR Edit -->
-<div class="modal fade" id="signalRModal" tabindex="-1" aria-labelledby="signalRModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-            <form id="signalRForm">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signalRModalTitle">SignalR Create</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id="srId" value="0" />
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label for="srMemberName" class="form-label">Tên hội viên <span class="text-danger">*</span></label>
-                            <input id="srMemberName" class="form-control" required maxlength="250" />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="srAmount" class="form-label">Số tiền <span class="text-danger">*</span></label>
-                            <input id="srAmount" type="number" min="0.01" step="0.01" class="form-control" required />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="srPaymentDate" class="form-label">Ngày thanh toán</label>
-                            <input id="srPaymentDate" type="date" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="srPaymentMethod" class="form-label">Phương thức thanh toán</label>
-                            <input id="srPaymentMethod" class="form-control" maxlength="100" />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="srTransactionCode" class="form-label">Mã giao dịch</label>
-                            <input id="srTransactionCode" class="form-control" maxlength="100" />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="srFeePackage" class="form-label">Gói phí</label>
-                            <select id="srFeePackage" class="form-select">
-                                <option value="">-- Chọn gói --</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="srStartDate" class="form-label">Ngày bắt đầu</label>
-                            <input id="srStartDate" type="date" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="srEndDate" class="form-label">Ngày kết thúc</label>
-                            <input id="srEndDate" type="date" class="form-control" />
-                        </div>
-                        <div class="col-md-4">
-                            <label for="srStatus" class="form-label">Status</label>
-                            <input id="srStatus" type="number" class="form-control" />
-                        </div>
-                        <div class="col-md-4">
-                            <label for="srPublishDate" class="form-label">Ngày publish</label>
-                            <input id="srPublishDate" type="date" class="form-control" />
-                        </div>
-                        <div class="col-md-4 d-flex align-items-end">
-                            <div class="form-check mb-2">
-                                <input id="srIsActive" type="checkbox" class="form-check-input" checked />
-                                <label for="srIsActive" class="form-check-label">Is Active</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <label for="srNotes" class="form-label">Ghi chú</label>
-                            <textarea id="srNotes" class="form-control" rows="2"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Huỷ</button>
-                    <button type="submit" id="btnSignalRSave" class="btn btn-success">Create via SignalR</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 @section Scripts {
-    <script src="~/lib/signalr/signalr.min.js"></script>
     <script>
         $(function () {
             tablePagination.init({
@@ -247,179 +157,6 @@
                 pageSizeSelector: "#feePageSize",
                 pageSize: 10
             });
-
-            const modalElement = document.getElementById("signalRModal");
-            const statusElement = document.getElementById("hubStatus");
-            const connection = new signalR.HubConnectionBuilder()
-                .withUrl("/membershipFeeHub")
-                .withAutomaticReconnect()
-                .build();
-
-            function today() {
-                return new Date().toISOString().slice(0, 10);
-            }
-
-            function setStatus(message, type) {
-                statusElement.className = "alert alert-" + (type || "secondary") + " py-2 small";
-                statusElement.textContent = message;
-            }
-
-            function isConnected() {
-                if (connection.state !== signalR.HubConnectionState.Connected) {
-                    setStatus("SignalR chưa kết nối xong, vui lòng thử lại sau 1-2 giây.", "warning");
-                    return false;
-                }
-                return true;
-            }
-
-            function resetForm() {
-                document.getElementById("srId").value = "0";
-                document.getElementById("srMemberName").value = "";
-                document.getElementById("srAmount").value = "";
-                document.getElementById("srPaymentDate").value = today();
-                document.getElementById("srPaymentMethod").value = "";
-                document.getElementById("srTransactionCode").value = "";
-                document.getElementById("srFeePackage").value = "";
-                document.getElementById("srStartDate").value = "";
-                document.getElementById("srEndDate").value = "";
-                document.getElementById("srStatus").value = "1";
-                document.getElementById("srPublishDate").value = today();
-                document.getElementById("srIsActive").checked = true;
-                document.getElementById("srNotes").value = "";
-                document.getElementById("signalRModalTitle").textContent = "SignalR Create";
-                document.getElementById("btnSignalRSave").textContent = "Create via SignalR";
-            }
-
-            function fillForm(item) {
-                document.getElementById("srId").value = item.membershipFeeQuangTtid;
-                document.getElementById("srMemberName").value = item.memberName || "";
-                document.getElementById("srAmount").value = item.amount ?? "";
-                document.getElementById("srPaymentDate").value = item.paymentDate || "";
-                document.getElementById("srPaymentMethod").value = item.paymentMethod || "";
-                document.getElementById("srTransactionCode").value = item.transactionCode || "";
-                document.getElementById("srFeePackage").value = item.feePackageQuangTtid ?? "";
-                document.getElementById("srStartDate").value = item.startDate || "";
-                document.getElementById("srEndDate").value = item.endDate || "";
-                document.getElementById("srStatus").value = item.status ?? "";
-                document.getElementById("srPublishDate").value = item.publishDate || "";
-                document.getElementById("srIsActive").checked = !!item.isActive;
-                document.getElementById("srNotes").value = item.notes || "";
-                document.getElementById("signalRModalTitle").textContent = "SignalR Edit #" + item.membershipFeeQuangTtid;
-                document.getElementById("btnSignalRSave").textContent = "Update via SignalR";
-            }
-
-            function readForm() {
-                const packageValue = document.getElementById("srFeePackage").value;
-                const statusValue = document.getElementById("srStatus").value;
-
-                return {
-                    membershipFeeQuangTtid: Number(document.getElementById("srId").value || 0),
-                    memberName: document.getElementById("srMemberName").value.trim(),
-                    amount: Number(document.getElementById("srAmount").value || 0),
-                    paymentDate: document.getElementById("srPaymentDate").value || null,
-                    paymentMethod: document.getElementById("srPaymentMethod").value || null,
-                    transactionCode: document.getElementById("srTransactionCode").value || null,
-                    startDate: document.getElementById("srStartDate").value || null,
-                    endDate: document.getElementById("srEndDate").value || null,
-                    notes: document.getElementById("srNotes").value || null,
-                    status: statusValue === "" ? null : Number(statusValue),
-                    publishDate: document.getElementById("srPublishDate").value || null,
-                    feePackageQuangTtid: packageValue === "" ? null : Number(packageValue),
-                    isActive: document.getElementById("srIsActive").checked
-                };
-            }
-
-            async function loadPackages() {
-                const packages = await connection.invoke("GetPackages");
-                const select = document.getElementById("srFeePackage");
-                select.innerHTML = '<option value="">-- Chọn gói --</option>' +
-                    packages.map(function (item) {
-                        return '<option value="' + item.feePackageQuangTtid + '">' + item.packageName + "</option>";
-                    }).join("");
-            }
-
-            connection.on("MembershipFeeChanged", function (payload) {
-                setStatus("Real-time: " + payload.action + ' "' + (payload.memberName || "") + '" lúc ' + payload.changedAt + ". Đang làm mới...", "success");
-                setTimeout(function () { window.location.reload(); }, 500);
-            });
-
-            document.getElementById("btnSignalRCreate").addEventListener("click", resetForm);
-
-            document.getElementById("signalRForm").addEventListener("submit", async function (event) {
-                event.preventDefault();
-                if (!isConnected()) {
-                    return;
-                }
-
-                const dto = readForm();
-                if (!dto.memberName) {
-                    alert("Vui lòng nhập tên hội viên.");
-                    return;
-                }
-                if (!(dto.amount > 0)) {
-                    alert("Số tiền phải lớn hơn 0.");
-                    return;
-                }
-
-                try {
-                    if (dto.membershipFeeQuangTtid > 0) {
-                        await connection.invoke("Update", dto);
-                    } else {
-                        await connection.invoke("Create", dto);
-                    }
-
-                    bootstrap.Modal.getOrCreateInstance(modalElement).hide();
-                    setStatus("Đã lưu bằng SignalR. Danh sách sẽ tự làm mới.", "success");
-                } catch (error) {
-                    setStatus("Lỗi SignalR: " + error.toString(), "danger");
-                }
-            });
-
-            $("#membershipFeeTable").on("click", ".btn-sr-edit", async function () {
-                if (!isConnected()) {
-                    return;
-                }
-
-                try {
-                    const item = await connection.invoke("GetById", Number($(this).data("id")));
-                    if (!item) {
-                        setStatus("Không tìm thấy bản ghi.", "warning");
-                        return;
-                    }
-
-                    fillForm(item);
-                    bootstrap.Modal.getOrCreateInstance(modalElement).show();
-                } catch (error) {
-                    setStatus("Lỗi SignalR: " + error.toString(), "danger");
-                }
-            });
-
-            $("#membershipFeeTable").on("click", ".btn-sr-delete", async function () {
-                if (!isConnected()) {
-                    return;
-                }
-
-                const id = Number($(this).data("id"));
-                if (!confirm("Xoá khoản phí #" + id + " bằng SignalR?")) {
-                    return;
-                }
-
-                try {
-                    const deleted = await connection.invoke("Delete", id);
-                    setStatus(deleted ? "Đã xoá bằng SignalR." : "Không tìm thấy bản ghi.", deleted ? "success" : "warning");
-                } catch (error) {
-                    setStatus("Lỗi SignalR: " + error.toString(), "danger");
-                }
-            });
-
-            connection.start()
-                .then(async function () {
-                    setStatus("SignalR đã kết nối. Các nút SignalR Create/Edit/Delete đã sẵn sàng.", "info");
-                    await loadPackages();
-                })
-                .catch(function (error) {
-                    setStatus("Kết nối SignalR thất bại: " + error.toString(), "danger");
-                });
         });
     </script>
 }

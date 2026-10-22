@@ -5,13 +5,13 @@ Bộ 4 assignment môn **PRN222**, dùng chung một cơ sở dữ liệu `PRN22
 
 | Bài | Công nghệ | SignalR | Chức năng chính |
 | --- | --- | --- | --- |
-| ASM01 | ASP.NET Core MVC | **Có** | CRUD MVC + CRUD SignalR, tìm kiếm 3 tiêu chí, phân trang jQuery |
-| ASM02 | ASP.NET Core Razor Pages | Không | Đăng nhập cookie, CRUD, tìm kiếm 3 tiêu chí, phân trang jQuery |
+| ASM01 | ASP.NET Core MVC | Không | CRUD MVC, tìm kiếm 3 tiêu chí, phân trang jQuery |
+| ASM02 | ASP.NET Core Razor Pages | **Có** | Đăng nhập cookie, CRUD + CRUD SignalR, tìm kiếm 3 tiêu chí, phân trang jQuery |
 | ASM03 | ASP.NET Core Blazor Server | Không | CRUD tương tác, tìm kiếm 3 tiêu chí, phân trang jQuery |
 | ASM04 | .NET Worker Service | Không | Job nền tự động xử lý khoản phí hết hạn và ghi log thống kê |
 
-> Riêng ASM01 có các nút **Create / Edit / Delete** bằng SignalR nằm ngay cạnh các nút
-> CRUD thông thường. ASM02, ASM03 và ASM04 **không** tham chiếu SignalR.
+> Riêng ASM02 có các nút **SignalR Create / Edit / Delete** nằm ngay cạnh các nút
+> CRUD Razor Pages thông thường. ASM01, ASM03 và ASM04 **không** tham chiếu SignalR.
 
 ---
 
@@ -98,9 +98,9 @@ sqlcmd -S "(localdb)\MSSQLLocalDB" -E -b -f 65001 -i "PRN222_Data.sql"
 │   ├── zSubscription.Entities.QuangTT/     # Entity dùng chung
 │   ├── zSubscription.Repositories.QuangTT/ # EF Core DbContext + repository
 │   ├── zSubscription.Services.QuangTT/     # Business service
-│   └── zSubscription.MVCWebApp.QuangTT/    # ASP.NET Core MVC + SignalR
+│   └── zSubscription.MVCWebApp.QuangTT/    # ASP.NET Core MVC
 ├── FA26_PRN222_SE1905_ASM02_QuangTT/
-│   └── zSubscription.RazorWebApp.QuangTT/  # Razor Pages + cookie login
+│   └── zSubscription.RazorWebApp.QuangTT/  # Razor Pages + cookie login + SignalR
 ├── FA26_PRN222_SE1905_ASM03_QuangTT/
 │   └── zSubscription.BlazorWebApp.QuangTT/ # Blazor Server
 └── FA26_PRN222_SE1905_ASM04_QuangTT/
@@ -116,7 +116,7 @@ Mỗi bài đều có bản copy của 3 project dùng chung (Entities / Reposit
 
 Mở terminal tại thư mục gốc repository.
 
-### ASM01 - MVC + SignalR (cổng 5171)
+### ASM01 - MVC WebApp (cổng 5171)
 
 ```powershell
 dotnet run --project "FA26_PRN222_SE1905_ASM01_QuangTT\zSubscription.MVCWebApp.QuangTT" --urls "http://localhost:5171"
@@ -125,8 +125,7 @@ dotnet run --project "FA26_PRN222_SE1905_ASM01_QuangTT\zSubscription.MVCWebApp.Q
 Mở: <http://localhost:5171/MembershipFees>
 
 - Nút `Create`, `Edit`, `Delete`: CRUD bằng MVC (form POST + antiforgery token).
-- Nút `SignalR Create`, `SignalR Edit`, `SignalR Delete`: CRUD qua hub `/membershipFeeHub`.
-- Hai nhóm nút nằm cạnh nhau trên cùng một trang.
+- Bài này **không dùng SignalR**; toàn bộ CRUD đi qua controller và Razor View.
 
 ### ASM02 - Razor Pages (cổng 5294)
 
@@ -144,6 +143,10 @@ Tài khoản mẫu:
 | `staff` | `123456` | Staff |
 
 Sau khi đăng nhập, trang CRUD nằm tại `/MembershipFeesQuangTt`.
+
+- Nút `Create New`, `Details`, `Edit`, `Delete`: CRUD bằng Razor Pages PageModel.
+- Nút `SignalR Create`, `SignalR Edit`, `SignalR Delete`: CRUD qua hub `/membershipFeeHub`.
+- Hai nhóm nút nằm cạnh nhau trên cùng một trang; thao tác SignalR tự động tải lại danh sách.
 
 ### ASM03 - Blazor Server (cổng 5104)
 
@@ -205,10 +208,9 @@ Các tiêu chí kết hợp với nhau bằng `AND`; bỏ trống tiêu chí nà
 
 ### CRUD
 
-- **ASM01**: MVC controller (`MembershipFeesController`) và SignalR hub
-  (`Hubs/MembershipFeeHub.cs`).
+- **ASM01**: MVC controller (`MembershipFeesController`), chỉ dùng CRUD MVC.
 - **ASM02**: Razor PageModel (`Pages/MembershipFeesQuangTt/*`), có `Details`, `Create`,
-  `Edit`, `Delete`.
+  `Edit`, `Delete`; thêm SignalR hub (`Hubs/MembershipFeeHub.cs`) cho các nút CRUD SignalR.
 - **ASM03**: component `Components/Pages/MembershipFees.razor`, dùng `EditForm` +
   `DataAnnotationsValidator`.
 - **ASM04**: không có UI; worker dùng chung tầng service/repository để bảo trì dữ liệu.
@@ -258,5 +260,7 @@ Tài khoản đăng nhập cho ASM02: `UserName`, `Password`, `Email`, `RoleId`,
 - Service `UpdateAsync` cập nhật trực tiếp trên entity đã truy vấn, không đính kèm
   navigation `FeePackageQuangTt`, tránh EF cập nhật lan sang bảng gói phí.
 - Bảng `System.UserAccount` được map bằng `ToTable("UserAccount", "System")`.
+- SignalR chỉ được dùng ở ASM02 (`/membershipFeeHub`), được bảo vệ bằng `[Authorize]`;
+  ASM01, ASM03 và ASM04 không tham chiếu SignalR.
 - Worker dùng `IServiceScopeFactory` để tạo scope mới cho mỗi chu kỳ, an toàn với
   `DbContext` scoped.

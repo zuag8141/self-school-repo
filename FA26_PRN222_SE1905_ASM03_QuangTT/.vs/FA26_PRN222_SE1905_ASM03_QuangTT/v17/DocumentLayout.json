@@ -1,12 +1,23 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\trant\\source\\repos\\FA26_PRN222_SE1905_ASM03_QuangTT\\",
+  "WorkspaceRootPath": "C:\\Users\\trant\\OneDrive\\Documents\\GitHub\\self-school-repo\\FA26_PRN222_SE1905_ASM03_QuangTT\\",
   "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{55f480fa-fbef-4386-8c1c-ea8d10c9f542}"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

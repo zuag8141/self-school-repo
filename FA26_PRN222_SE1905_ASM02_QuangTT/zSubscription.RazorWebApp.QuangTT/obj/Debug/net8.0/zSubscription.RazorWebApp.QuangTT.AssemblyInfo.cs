@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("zSubscription.RazorWebApp.QuangTT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb5495439eca790e973919cc2c568f5d99b9d479")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d35648979a627050f52d5bc2507901d355f61fd")]
 [assembly: System.Reflection.AssemblyProductAttribute("zSubscription.RazorWebApp.QuangTT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("zSubscription.RazorWebApp.QuangTT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
