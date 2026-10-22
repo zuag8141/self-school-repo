@@ -1,0 +1,58 @@
+@page "/login"
+@attribute [AllowAnonymous]
+
+<PageTitle>Đăng nhập · ASM3</PageTitle>
+
+<div class="row justify-content-center">
+    <div class="col-md-5 col-lg-4">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h1 class="h4 mb-3">Đăng nhập ASM3</h1>
+
+                @if (!string.IsNullOrWhiteSpace(Error))
+                {
+                    <div class="alert alert-danger py-2 small" role="alert">
+                        @(Error switch
+                        {
+                            "invalid" => "Sai tài khoản hoặc mật khẩu.",
+                            "missing" => "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.",
+                            "session" => "Phiên đăng nhập đã hết hạn, vui lòng thử lại.",
+                            _ => "Không thể đăng nhập. Vui lòng thử lại."
+                        })
+                    </div>
+                }
+
+                <form method="post" action="/account/login">
+                    <AntiforgeryToken />
+                    <input type="hidden" name="returnUrl" value="@ReturnUrl" />
+
+                    <div class="mb-3">
+                        <label for="userName" class="form-label">Tên đăng nhập</label>
+                        <input id="userName" name="userName" class="form-control"
+                               autocomplete="username" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Mật khẩu</label>
+                        <input id="password" name="password" type="password" class="form-control"
+                               autocomplete="current-password" required />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+
+                <p class="text-muted small mt-3 mb-0">
+                    Tài khoản mẫu: <code>admin / 123456</code>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [SupplyParameterFromQuery(Name = "returnUrl")]
+    public string? ReturnUrl { get; set; }
+
+    [SupplyParameterFromQuery(Name = "error")]
+    public string? Error { get; set; }
+}

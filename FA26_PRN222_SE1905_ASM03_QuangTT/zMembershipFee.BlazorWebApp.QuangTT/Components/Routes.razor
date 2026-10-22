@@ -1,0 +1,14 @@
+﻿<Router AppAssembly="typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
+            <NotAuthorized>
+                <div class="alert alert-warning">
+                    <h2 class="h5">Bạn cần đăng nhập</h2>
+                    <p class="mb-3">Trang này yêu cầu đăng nhập bằng cookie.</p>
+                    <a class="btn btn-primary" href="login?returnUrl=%2Fmembership-fees">Đăng nhập</a>
+                </div>
+            </NotAuthorized>
+        </AuthorizeRouteView>
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+</Router>

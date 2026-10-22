@@ -1,0 +1,102 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using zMembershipFee.Entities.QuangTT.Models;
+
+namespace zMembershipFee.Repositories.QuangTT.DBContext;
+
+public partial class PRN222Context : DbContext
+{
+    public PRN222Context()
+    {
+    }
+
+    public PRN222Context(DbContextOptions<PRN222Context> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<FeePackageQuangTt> FeePackageQuangTts { get; set; }
+    public virtual DbSet<MembershipFeeQuangTt> MembershipFeeQuangTts { get; set; }
+    public virtual DbSet<SystemUserAccount> SystemUserAccounts { get; set; }
+
+    public static string GetConnectionString(string connectionStringName)
+    {
+        var config = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: true)
+            .Build();
+
+        return config.GetConnectionString(connectionStringName)
+            ?? "Server=(localdb)\\MSSQLLocalDB;Database=PRN222;Trusted_Connection=True;TrustServerCertificate=True";
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection"));
+        }
+
+        // Các app chỉ đọc dữ liệu, tránh tracking ngoài ý muốn.
+        optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<FeePackageQuangTt>(entity =>
+        {
+            entity.ToTable("FeePackageQuangTT");
+            entity.HasKey(e => e.FeePackageQuangTtid);
+            entity.Property(e => e.FeePackageQuangTtid).HasColumnName("FeePackageQuangTTId");
+            entity.Property(e => e.PackageName).IsRequired().HasMaxLength(200);
+            entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.PublishDate).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<MembershipFeeQuangTt>(entity =>
+        {
+            entity.ToTable("MembershipFeeQuangTT");
+            entity.HasKey(e => e.MembershipFeeQuangTtid);
+            entity.Property(e => e.MembershipFeeQuangTtid).HasColumnName("MembershipFeeQuangTTId");
+            entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.EndDate).HasColumnType("datetime");
+            entity.Property(e => e.FeePackageQuangTtid).HasColumnName("FeePackageQuangTTId");
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.MemberName).IsRequired().HasMaxLength(250);
+            entity.Property(e => e.PaymentDate).HasColumnType("datetime");
+            entity.Property(e => e.PaymentMethod).HasMaxLength(100);
+            entity.Property(e => e.PublishDate).HasColumnType("datetime");
+            entity.Property(e => e.StartDate).HasColumnType("datetime");
+            entity.Property(e => e.TransactionCode).HasMaxLength(100);
+            entity.Property(e => e.UpdateAt).HasColumnType("datetime");
+
+            entity.HasOne(d => d.FeePackageQuangTt)
+                .WithMany(p => p.MembershipFeeQuangTts)
+                .HasForeignKey(d => d.FeePackageQuangTtid)
+                .HasConstraintName("FK_MembershipFeeQuangTT_FeePackageQuangTT");
+        });
+
+        modelBuilder.Entity<SystemUserAccount>(entity =>
+        {
+            entity.HasKey(e => e.UserAccountId);
+            entity.ToTable("UserAccount", "System");
+            entity.Property(e => e.UserAccountId).HasColumnName("UserAccountID");
+            entity.Property(e => e.ApplicationCode).HasMaxLength(50);
+            entity.Property(e => e.CreatedBy).HasMaxLength(50);
+            entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+            entity.Property(e => e.Email).IsRequired().HasMaxLength(150);
+            entity.Property(e => e.EmployeeCode).IsRequired().HasMaxLength(50);
+            entity.Property(e => e.FullName).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.ModifiedBy).HasMaxLength(50);
+            entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
+            entity.Property(e => e.Password).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.Phone).IsRequired().HasMaxLength(50);
+            entity.Property(e => e.RequestCode).HasMaxLength(50);
+            entity.Property(e => e.UserName).IsRequired().HasMaxLength(50);
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+}

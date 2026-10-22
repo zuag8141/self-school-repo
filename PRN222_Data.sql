@@ -8,13 +8,14 @@
         và chỉ chèn dữ liệu khi bảng đang rỗng (chạy lại nhiều lần vẫn an toàn).
 
    Dữ liệu phục vụ 4 assignment:
-     - ASM1: MVC WebApp + SignalR
-     - ASM2: Razor Pages
-     - ASM3: Blazor WebApp
-     - ASM4: Worker Service
+     - ASM1: MVC WebApp (cookie login)
+     - ASM2: Razor Pages + SignalR (cookie login)
+     - ASM3: Blazor WebApp (cookie login)
+     - ASM4: Worker Service (login khi khởi động)
    Bảng chính dùng trong ASM: dbo.MembershipFeeQuangTT
    Bảng tham chiếu:           dbo.FeePackageQuangTT
-   Đăng nhập ASM2:            admin / 123456
+   Đăng nhập ASM1/ASM2/ASM3:  admin / 123456
+   Đăng nhập ASM4:            Worker:Login trong appsettings.json
    ============================================================================= */
 
 IF DB_ID(N'PRN222') IS NULL
@@ -77,7 +78,7 @@ END;
 GO
 
 /* =============================================================================
-   2. SYSTEM USER ACCOUNT (dùng cho đăng nhập ASM2)
+   2. SYSTEM USER ACCOUNT (dùng cho đăng nhập ASM1/ASM2/ASM3 và ASM4 khi khởi động)
    ============================================================================= */
 
 IF OBJECT_ID(N'[System].[UserAccount]', N'U') IS NULL

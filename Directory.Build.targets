@@ -1,0 +1,46 @@
+<Project>
+
+  <!--
+    Smart App Control / WDAC application control policies block newly built,
+    unsigned assemblies (0x800711C7).  For local development this target:
+
+      1. Authenticode-signs the app output with a persistent local dev
+         certificate (created in CurrentUser\My on first use), and
+      2. reuses the signed shared assemblies from the ASM02 build output.
+
+    The three shared projects are duplicated in every assignment folder.  They
+    have identical source, but compiling them in four different folders produces
+    four different file hashes.  Smart App Control trusts the ASM02 hashes on
+    this machine, so using the ASM02 copies keeps ASM01/03/04 runnable without
+    disabling the policy.
+
+    This is a local development workaround, not a production signing setup.
+
+    Disable with: dotnet build -p:EnableLocalCodeSigning=false
+  -->
+  <PropertyGroup>
+    <EnableLocalCodeSigning Condition="'$(EnableLocalCodeSigning)' == ''">true</EnableLocalCodeSigning>
+    <LocalCodeSigningScript>$(MSBuildThisFileDirectory)tools\Sign-BuildOutput.ps1</LocalCodeSigningScript>
+    <CanonicalSharedBinDir>$(MSBuildThisFileDirectory)FA26_PRN222_SE1905_ASM02_QuangTT\zMembershipFee.RazorWebApp.QuangTT\bin\$(Configuration)\$(TargetFramework)\</CanonicalSharedBinDir>
+    <IsCanonicalRazorApp Condition="'$(MSBuildProjectName)' == 'zMembershipFee.RazorWebApp.QuangTT'">true</IsCanonicalRazorApp>
+  </PropertyGroup>
+
+  <Target Name="SignAppOutputForApplicationControl"
+          AfterTargets="Build"
+          Condition="'$(EnableLocalCodeSigning)' == 'true' and '$(OS)' == 'Windows_NT' and '$(OutputType)' == 'Exe' and Exists('$(LocalCodeSigningScript)')">
+    <Exec Command="pwsh -NoProfile -ExecutionPolicy Bypass -File &quot;$(LocalCodeSigningScript)&quot; -TargetPath &quot;$(TargetPath)&quot;"
+          ContinueOnError="true" />
+
+    <ItemGroup Condition="'$(IsCanonicalRazorApp)' != 'true' and Exists('$(CanonicalSharedBinDir)zMembershipFee.Repositories.QuangTT.dll')">
+      <ApprovedSharedAssembly Include="$(CanonicalSharedBinDir)zMembershipFee.Entities.QuangTT.dll" />
+      <ApprovedSharedAssembly Include="$(CanonicalSharedBinDir)zMembershipFee.Repositories.QuangTT.dll" />
+      <ApprovedSharedAssembly Include="$(CanonicalSharedBinDir)zMembershipFee.Services.QuangTT.dll" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(ApprovedSharedAssembly)"
+          DestinationFolder="$(TargetDir)"
+          SkipUnchangedFiles="true"
+          Condition="'@(ApprovedSharedAssembly)' != ''" />
+  </Target>
+
+</Project>

@@ -1,15 +1,15 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.37628.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zSubscription.Entities.QuangTT", "zSubscription.Entities.QuangTT\zSubscription.Entities.QuangTT.csproj", "{AD561F08-B2C2-47D5-9A74-57711B4DE794}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zMembershipFee.Entities.QuangTT", "zMembershipFee.Entities.QuangTT\zMembershipFee.Entities.QuangTT.csproj", "{AD561F08-B2C2-47D5-9A74-57711B4DE794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zSubscription.Repositories.QuangTT", "zSubscription.Repositories.QuangTT\zSubscription.Repositories.QuangTT.csproj", "{E78EB1C3-E543-4A31-B7A8-7AB23AC3C1A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zMembershipFee.Repositories.QuangTT", "zMembershipFee.Repositories.QuangTT\zMembershipFee.Repositories.QuangTT.csproj", "{E78EB1C3-E543-4A31-B7A8-7AB23AC3C1A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zSubscription.Services.QuangTT", "zSubscription.Services.QuangTT\zSubscription.Services.QuangTT.csproj", "{23A2609E-DE99-419F-896C-08C59AFFDFB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zMembershipFee.Services.QuangTT", "zMembershipFee.Services.QuangTT\zMembershipFee.Services.QuangTT.csproj", "{23A2609E-DE99-419F-896C-08C59AFFDFB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zSubscription.BlazorWebApp.QuangTT", "zSubscription.BlazorWebApp.QuangTT\zSubscription.BlazorWebApp.QuangTT.csproj", "{A1465F22-2458-4E4C-A5F4-F95EC71BF351}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zMembershipFee.BlazorWebApp.QuangTT", "zMembershipFee.BlazorWebApp.QuangTT\zMembershipFee.BlazorWebApp.QuangTT.csproj", "{A1465F22-2458-4E4C-A5F4-F95EC71BF351}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

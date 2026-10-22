@@ -1,10 +1,10 @@
 <Solution>
   <Folder Name="/Layers/">
-    <Project Path="zSubscription.Entities.QuangTT/zSubscription.Entities.QuangTT.csproj" />
-    <Project Path="zSubscription.Repositories.QuangTT/zSubscription.Repositories.QuangTT.csproj" />
-    <Project Path="zSubscription.Services.QuangTT/zSubscription.Services.QuangTT.csproj" />
+    <Project Path="zMembershipFee.Entities.QuangTT/zMembershipFee.Entities.QuangTT.csproj" />
+    <Project Path="zMembershipFee.Repositories.QuangTT/zMembershipFee.Repositories.QuangTT.csproj" />
+    <Project Path="zMembershipFee.Services.QuangTT/zMembershipFee.Services.QuangTT.csproj" />
   </Folder>
   <Folder Name="/Worker/">
-    <Project Path="zSubscription.WorkerService.QuangTT/zSubscription.WorkerService.QuangTT.csproj" />
+    <Project Path="zMembershipFee.WorkerService.QuangTT/zMembershipFee.WorkerService.QuangTT.csproj" />
   </Folder>
 </Solution>

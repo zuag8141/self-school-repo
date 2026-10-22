@@ -1,0 +1,30 @@
+@model zMembershipFee.Entities.QuangTT.Models.MembershipFeeQuangTt
+@{
+    ViewData["Title"] = "Edit Membership Fee";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+        <h1 class="h3 mb-1">Edit Membership Fee #@Model.MembershipFeeQuangTtid</h1>
+        <p class="text-muted mb-0">Cập nhật bằng form MVC (POST + ValidateAntiForgeryToken).</p>
+    </div>
+    <a asp-action="Index" class="btn btn-outline-secondary">Quay lại</a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="MembershipFeeQuangTtid" />
+            <partial name="_Form" model="Model" />
+            <div class="mt-4 d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                <a asp-action="Details" asp-route-id="@Model.MembershipFeeQuangTtid" class="btn btn-outline-secondary">Details</a>
+                <a asp-action="Index" class="btn btn-outline-secondary">Huỷ</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

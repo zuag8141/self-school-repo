@@ -1,0 +1,42 @@
+@model zMembershipFee.Entities.QuangTT.Models.MembershipFeeQuangTt
+@{
+    ViewData["Title"] = "Delete Membership Fee";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+        <h1 class="h3 mb-1">Delete Membership Fee #@Model.MembershipFeeQuangTtid</h1>
+        <p class="text-muted mb-0">Xoá bằng form MVC (POST + ValidateAntiForgeryToken).</p>
+    </div>
+    <a asp-action="Index" class="btn btn-outline-secondary">Quay lại</a>
+</div>
+
+<div class="alert alert-danger">
+    Bạn có chắc chắn muốn xoá khoản phí của <strong>@Model.MemberName</strong>
+    (@Model.Amount.ToString("N0") đ)?
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Hội viên</dt>
+            <dd class="col-sm-9">@Model.MemberName</dd>
+
+            <dt class="col-sm-3">Gói phí</dt>
+            <dd class="col-sm-9">@(Model.FeePackageQuangTt?.PackageName ?? "-")</dd>
+
+            <dt class="col-sm-3">Ngày thanh toán</dt>
+            <dd class="col-sm-9">@Model.PaymentDate.ToString("dd/MM/yyyy")</dd>
+
+            <dt class="col-sm-3">Mã giao dịch</dt>
+            <dd class="col-sm-9">@(Model.TransactionCode ?? "-")</dd>
+        </dl>
+    </div>
+    <div class="card-footer bg-white">
+        <form asp-action="Delete" method="post" class="d-inline">
+            <input type="hidden" name="id" value="@Model.MembershipFeeQuangTtid" />
+            <button type="submit" class="btn btn-danger">Xác nhận xoá</button>
+        </form>
+        <a asp-action="Index" class="btn btn-outline-secondary">Huỷ</a>
+    </div>
+</div>
