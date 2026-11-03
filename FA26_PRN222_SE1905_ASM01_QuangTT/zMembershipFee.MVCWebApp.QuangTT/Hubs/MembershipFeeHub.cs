@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.SignalR;
 using zMembershipFee.Entities.QuangTT.Models;
 using zMembershipFee.Services.QuangTT;
 
-namespace zMembershipFee.RazorWebApp.QuangTT.Hubs;
+namespace zMembershipFee.MVCWebApp.QuangTT.Hubs;
 
 /// <summary>
-/// SignalR CRUD hub for the ASM02 Membership Fees page.
+/// SignalR CRUD hub for the ASM01 Membership Fees page.
 /// The page keeps its normal Razor Pages buttons and adds SignalR buttons next to them.
 /// </summary>
 [Authorize]
@@ -54,7 +54,7 @@ public class MembershipFeeHub : Hub
         Validate(entity);
 
         var created = await _membershipFeeService.CreateAsync(entity);
-        await BroadcastChangedAsync("created", created.MemberName);
+        await BroadcastReloadAsync("created", created.MemberName);
         return created.MembershipFeeQuangTtid;
     }
 
@@ -74,7 +74,7 @@ public class MembershipFeeHub : Hub
             throw new HubException("Membership fee was not found.");
         }
 
-        await BroadcastChangedAsync("updated", entity.MemberName);
+        await BroadcastReloadAsync("updated", entity.MemberName);
         return true;
     }
 
@@ -92,7 +92,7 @@ public class MembershipFeeHub : Hub
             throw new HubException("Could not delete membership fee.");
         }
 
-        await BroadcastChangedAsync("deleted", existing.MemberName);
+        await BroadcastReloadAsync("deleted", existing.MemberName);
         return true;
     }
 
@@ -109,13 +109,22 @@ public class MembershipFeeHub : Hub
         }
     }
 
-    private Task BroadcastChangedAsync(string action, string? memberName)
-        => Clients.All.SendAsync("MembershipFeeChanged", new
+    /// <summary>
+    /// Sau mỗi thao tác CRUD, đẩy toàn bộ danh sách mới nhất về mọi client qua SignalR.
+    /// Client tự vẽ lại bảng tại chỗ, KHÔNG reload trang và KHÔNG gọi HTTP —
+    /// nên trong tab Network của trình duyệt KHÔNG xuất hiện request nào mới.
+    /// </summary>
+    private async Task BroadcastReloadAsync(string action, string? memberName)
+    {
+        var items = await _membershipFeeService.SearchAsync(null, null, null);
+        await Clients.All.SendAsync("MembershipFeesChanged", new
         {
             Action = action,
             MemberName = memberName,
-            ChangedAt = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy")
+            ChangedAt = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"),
+            Items = items.Select(MapItem).ToList()
         });
+    }
 
     private static object MapItem(MembershipFeeQuangTt item) => new
     {

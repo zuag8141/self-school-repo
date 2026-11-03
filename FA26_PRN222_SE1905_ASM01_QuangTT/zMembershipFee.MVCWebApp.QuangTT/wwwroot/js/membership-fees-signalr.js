@@ -36,7 +36,6 @@
 
     let currentId = 0;
     let packagesLoaded = false;
-    let reloadScheduled = false;
 
     function pad(value) {
         return String(value).padStart(2, "0");
@@ -66,15 +65,89 @@
         return (error && (error.message || error.toString())) || "Unknown error";
     }
 
-    function scheduleReload() {
-        if (reloadScheduled) {
-            return;
-        }
+    // ---- Vẽ bảng tại chỗ từ dữ liệu server tự động đẩy về (KHÔNG reload, KHÔNG request HTTP) ----
+    function escapeHtml(value) {
+        if (value == null) return "";
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+    }
 
-        reloadScheduled = true;
-        window.setTimeout(function () {
-            window.location.reload();
-        }, 700);
+    function fmtDate(value) {
+        if (!value) return "-";
+        var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(value));
+        if (!m) return String(value);
+        return m[3] + "/" + m[2] + "/" + m[1];
+    }
+
+    function fmtAmount(value) {
+        var n = Number(value);
+        if (!isFinite(n)) n = 0;
+        return n.toLocaleString("en-US", { maximumFractionDigits: 0 });
+    }
+
+    function renderRow(item) {
+        var id = item.membershipFeeQuangTtid;
+        var name = escapeHtml(item.memberName || "");
+        var tx = escapeHtml(item.transactionCode || "");
+        var amount = fmtAmount(item.amount) + " đ";
+        var method = escapeHtml(item.paymentMethod || "");
+        var payDate = fmtDate(item.paymentDate);
+        var start = fmtDate(item.startDate);
+        var end = fmtDate(item.endDate);
+        var publish = fmtDate(item.publishDate);
+        var pkg = escapeHtml(item.packageName || "-");
+        var status = item.status != null ? String(item.status) : "-";
+        var badge = item.isActive
+            ? '<span class="badge bg-success">Active</span>'
+            : '<span class="badge bg-secondary">Inactive</span>';
+
+        return '<tr>' +
+            '<td><div class="fw-semibold">' + name + '</div>' +
+                '<div class="text-muted small">' + tx + '</div></td>' +
+            '<td><div class="fw-semibold">' + amount + '</div>' +
+                '<div class="text-muted small">' + method + ' · ' + payDate + '</div></td>' +
+            '<td><div>' + start + ' → ' + end + '</div>' +
+                '<div class="text-muted small">Publish: ' + publish + '</div></td>' +
+            '<td>' + pkg + '</td>' +
+            '<td><div class="small">Status: ' + status + '</div>' + badge + '</td>' +
+            '<td class="text-end"><div class="d-flex flex-wrap gap-1 justify-content-end">' +
+                '<a href="/MembershipFees/Details?id=' + id + '" class="btn btn-sm btn-outline-secondary">Details</a>' +
+                '<a href="/MembershipFees/Edit?id=' + id + '" class="btn btn-sm btn-outline-primary">Edit</a>' +
+                '<a href="/MembershipFees/Delete?id=' + id + '" class="btn btn-sm btn-outline-danger">Delete</a>' +
+                '<button type="button" class="btn btn-sm btn-success btn-sr-edit" data-id="' + id + '">SignalR Edit</button>' +
+                '<button type="button" class="btn btn-sm btn-outline-warning btn-sr-delete" data-id="' + id + '">SignalR Delete</button>' +
+            '</div></td>' +
+        '</tr>';
+    }
+
+    function initPagination() {
+        if (typeof window.tablePagination === "undefined") return;
+        window.tablePagination.init({
+            table: "#membershipFeeTable",
+            pager: "#feePager",
+            info: "#feePageInfo",
+            pageSizeSelector: "#feePageSize",
+            pageSize: 10
+        });
+    }
+
+    function renderTable(items) {
+        if (!tableBody) return;
+        var html = "";
+        if (!items || items.length === 0) {
+            html = '<tr class="js-empty-row"><td colspan="6" class="text-center text-muted py-4">Không có dữ liệu phù hợp.</td></tr>';
+        } else {
+            for (var i = 0; i < items.length; i++) {
+                html += renderRow(items[i]);
+            }
+        }
+        // Chỉ ghi lại các dòng trong tbody — giữ nguyên element tbody để delegate click vẫn hoạt động.
+        tableBody.innerHTML = html;
+        initPagination();
     }
 
     function resetForm() {
@@ -195,19 +268,31 @@
         try {
             setStatus("Đang xoá khoản phí #" + id + " qua SignalR...", "secondary");
             await connection.invoke("Delete", id);
-            setStatus("Đã xoá khoản phí #" + id + " qua SignalR.", "success");
-            scheduleReload();
+            // Server sẽ push danh sách mới về — bảng tự cập nhật, KHÔNG reload.
         } catch (error) {
             setStatus("Xoá thất bại: " + errorText(error), "danger");
         }
     }
 
-    connection.on("MembershipFeeChanged", function (payload) {
-        const memberName = payload && payload.memberName ? payload.memberName : "";
-        const action = payload && payload.action ? payload.action : "changed";
-        const changedAt = payload && payload.changedAt ? payload.changedAt : "";
-        setStatus("SignalR: " + action + " \"" + memberName + "\" lúc " + changedAt + ". Đang tải lại...", "success");
-        scheduleReload();
+    async function refreshFromServer() {
+        try {
+            const items = await connection.invoke("GetAll");
+            renderTable(items || []);
+        } catch (error) {
+            setStatus("Không tải được danh sách: " + errorText(error), "danger");
+        }
+    }
+
+    // Server tự động đẩy toàn bộ danh sách mới nhất về MỌI tab.
+    // Vẽ lại bảng tại chỗ — tab Network KHÔNG xuất hiện request nào mới.
+    connection.on("MembershipFeesChanged", function (payload) {
+        const items = (payload && payload.items) ? payload.items : [];
+        renderTable(items);
+
+        const action = (payload && payload.action) ? payload.action : "changed";
+        const memberName = (payload && payload.memberName) ? payload.memberName : "";
+        const changedAt = (payload && payload.changedAt) ? payload.changedAt : "";
+        setStatus("SignalR server đang cập nhật: " + action + " \"" + memberName + "\" lúc " + changedAt + ".", "success");
     });
 
     connection.onreconnecting(function () {
@@ -219,6 +304,7 @@
         loadPackages().catch(function (error) {
             setStatus("Không tải được gói phí: " + errorText(error), "danger");
         });
+        refreshFromServer();
     });
 
     connection.onclose(function () {
@@ -264,7 +350,7 @@
                 modal.hide();
             }
 
-            scheduleReload();
+            // Server push sẽ cập nhật bảng cho mọi tab — KHÔNG reload, KHÔNG request HTTP.
         } catch (error) {
             showError("Lưu thất bại: " + errorText(error));
         } finally {

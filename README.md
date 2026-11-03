@@ -230,11 +230,11 @@ hãy publish rồi đăng ký file `.exe` một lần bằng **PowerShell chạy
 
 ```powershell
 dotnet publish "FA26_PRN222_SE1905_ASM04_QuangTT\zMembershipFee.WorkerService.QuangTT" -c Release -r win-x64 --self-contained false -o ".\publish\ASM04-Worker"
-sc.exe create "QuangTT" binPath= "C:\duong-dan-day-du\publish\ASM04-Worker\zMembershipFee.WorkerService.QuangTT.exe" start= demand
-sc.exe description "QuangTT" "PRN222 ASM04 membership-fee background worker"
+sc.exe create "QuangTT_SE1905_WS" binPath= "C:\duong-dan-day-du\publish\ASM04-Worker\zMembershipFee.WorkerService.QuangTT.exe" start= demand
+sc.exe description "QuangTT_SE1905_WS" "PRN222 ASM04 membership-fee background worker"
 ```
 
-Mở `services.msc`, tìm **QuangTT** và bấm **Start**. File log
+Mở `services.msc`, tìm **QuangTT_SE1905_WS** và bấm **Start**. File log
 được tự tạo tại:
 
 ```text
@@ -245,7 +245,7 @@ Lưu ý: LocalDB là SQL Server theo từng tài khoản Windows. Nếu vẫn d�
 string `(localdb)\MSSQLLocalDB`, trong tab **Log On** của service chọn chính tài khoản
 Windows đã tạo database `PRN222`; hoặc chuyển sang SQL Server Express/SQL Server dùng
 chung. Nếu service chạy bằng `LocalSystem`, LocalDB của tài khoản cá nhân sẽ không truy
-cập được. Khi cần gỡ service, chạy `sc.exe delete "QuangTT"`
+cập được. Khi cần gỡ service, chạy `sc.exe delete "QuangTT_SE1905_WS"`
 trong terminal quản trị sau khi đã Stop service.
 
 ---

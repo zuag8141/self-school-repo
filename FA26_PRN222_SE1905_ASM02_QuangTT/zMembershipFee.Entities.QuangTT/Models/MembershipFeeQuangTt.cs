@@ -8,6 +8,7 @@ public partial class MembershipFeeQuangTt
 
     [Required(ErrorMessage = "Member name is required.")]
     [StringLength(250)]
+    [RegularExpression(@"^[A-Za-zÀ-ÖØ-öø-ÿĀ-ſƠơƯưẠ-ỹ0-9\u0300-\u036f]+(?: +[A-Za-zÀ-ÖØ-öø-ÿĀ-ſƠơƯưẠ-ỹ0-9\u0300-\u036f]+)*$", ErrorMessage = "Member name can contain only letters, numbers, and spaces.")]
     [Display(Name = "Member name")]
     public string MemberName { get; set; } = string.Empty;
 
@@ -20,10 +21,12 @@ public partial class MembershipFeeQuangTt
     public DateTime PaymentDate { get; set; } = DateTime.Today;
 
     [StringLength(100)]
+    [RegularExpression(@"^[\p{L}\p{M}0-9]+(?:[ .&/\-][\p{L}\p{M}0-9]+)*$", ErrorMessage = "Payment method contains invalid characters.")]
     [Display(Name = "Payment method")]
     public string? PaymentMethod { get; set; }
 
     [StringLength(100)]
+    [RegularExpression(@"^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$", ErrorMessage = "Transaction code can contain only letters, numbers, and single hyphens.")]
     [Display(Name = "Transaction code")]
     public string? TransactionCode { get; set; }
 

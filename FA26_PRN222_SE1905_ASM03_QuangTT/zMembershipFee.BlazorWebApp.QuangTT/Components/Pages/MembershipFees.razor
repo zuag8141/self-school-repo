@@ -79,10 +79,12 @@
                     <div class="col-md-6">
                         <label class="form-label">Phương thức thanh toán</label>
                         <InputText @bind-Value="model.PaymentMethod" class="form-control" placeholder="Cash / Banking / Momo..." />
+                        <ValidationMessage For="() => model.PaymentMethod" class="text-danger small" />
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Mã giao dịch</label>
                         <InputText @bind-Value="model.TransactionCode" class="form-control" placeholder="VD: GD-2026-036" />
+                        <ValidationMessage For="() => model.TransactionCode" class="text-danger small" />
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Gói phí</label>

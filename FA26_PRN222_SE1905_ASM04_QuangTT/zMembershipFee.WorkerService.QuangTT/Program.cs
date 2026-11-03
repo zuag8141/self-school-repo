@@ -9,7 +9,7 @@ var builder = Host.CreateApplicationBuilder(args);
 
 // Khi process được Service Control Manager khởi động, dùng Windows Service lifetime.
 // Khi chạy bằng `dotnet run`, ứng dụng vẫn chạy bình thường như một console worker.
-builder.Services.AddWindowsService(options => options.ServiceName = "QuangTT");
+builder.Services.AddWindowsService(options => options.ServiceName = "QuangTT_SE1905_WS");
 
 // Development: <project Worker Service>/Logs. Sau publish: <publish>/Logs.
 var fileLogOptions = builder.Configuration

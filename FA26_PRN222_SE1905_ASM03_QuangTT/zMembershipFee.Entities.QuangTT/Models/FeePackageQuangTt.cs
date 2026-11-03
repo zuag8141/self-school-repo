@@ -7,6 +7,7 @@ public partial class FeePackageQuangTt
     public int FeePackageQuangTtid { get; set; }
 
     [Required, StringLength(200)]
+    [RegularExpression(@"^[\p{L}\p{M}0-9]+(?:[ .&()/'\-][\p{L}\p{M}0-9]+)*$", ErrorMessage = "Package name contains invalid characters.")]
     public string PackageName { get; set; } = string.Empty;
 
     public string? Description { get; set; }

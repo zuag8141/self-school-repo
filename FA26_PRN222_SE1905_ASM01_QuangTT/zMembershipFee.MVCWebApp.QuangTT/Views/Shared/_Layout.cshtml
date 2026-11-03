@@ -3,20 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="~/theme.js" asp-append-version="true"></script>
     <title>@ViewData["Title"] - ASM1 MVC WebApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/zMembershipFee.MVCWebApp.QuangTT.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ledger.css" asp-append-version="true" />
 </head>
-<body class="bg-light">
+<body class="app-shell">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-primary bg-gradient border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-dark app-nav">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ASM1 · MVC WebApp</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+            <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle light or dark mode" aria-pressed="false">Dark mode</button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -55,13 +58,13 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container app-main">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted bg-white">
+    <footer class="footer">
         <div class="container">
             &copy; 2026 - FA26_PRN222_SE1905_ASM01_QuangTT - MVC WebApp
         </div>
