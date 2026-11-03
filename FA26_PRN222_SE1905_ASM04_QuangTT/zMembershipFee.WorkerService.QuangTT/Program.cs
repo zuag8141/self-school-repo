@@ -1,11 +1,25 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 using zMembershipFee.Repositories.QuangTT;
 using zMembershipFee.Repositories.QuangTT.DBContext;
 using zMembershipFee.Services.QuangTT;
 using zMembershipFee.WorkerService.QuangTT;
 
 var builder = Host.CreateApplicationBuilder(args);
+
+// Khi process được Service Control Manager khởi động, dùng Windows Service lifetime.
+// Khi chạy bằng `dotnet run`, ứng dụng vẫn chạy bình thường như một console worker.
+builder.Services.AddWindowsService(options => options.ServiceName = "QuangTT");
+
+// Development: <project Worker Service>/Logs. Sau publish: <publish>/Logs.
+var fileLogOptions = builder.Configuration
+    .GetSection(FileLoggingOptions.SectionName)
+    .Get<FileLoggingOptions>() ?? new FileLoggingOptions();
+var logRoot = builder.Environment.IsDevelopment()
+    ? builder.Environment.ContentRootPath
+    : AppContext.BaseDirectory;
+builder.Services.AddLogging(loggingBuilder =>
+    loggingBuilder.AddProvider(new FileLoggerProvider(fileLogOptions, logRoot)));
 
 builder.Services.AddDbContext<PRN222Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -24,43 +38,15 @@ builder.Services.AddHostedService<MembershipFeeWorker>();
 
 var host = builder.Build();
 
-if (!await TryLoginAsync(host))
+// Ghi dòng khởi động vào file log ngay lập tức (không phụ thuộc DB).
+using (var startupScope = host.Services.CreateScope())
 {
-    Environment.ExitCode = 1;
-    return;
+    var bootstrapLogger = startupScope.ServiceProvider
+        .GetRequiredService<ILoggerFactory>()
+        .CreateLogger("Bootstrap");
+    bootstrapLogger.LogInformation(
+        "ASM4 Worker Service đang khởi động. Log file: {LogPath}",
+        fileLogOptions.GetFullPath(logRoot));
 }
 
 await host.RunAsync();
-
-static async Task<bool> TryLoginAsync(IHost host)
-{
-    using var scope = host.Services.CreateScope();
-    var options = scope.ServiceProvider.GetRequiredService<IOptions<WorkerLoginOptions>>().Value;
-    var logger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("WorkerLogin");
-
-    if (!options.RequireLogin)
-    {
-        logger.LogWarning("Worker login is disabled (Worker:Login:RequireLogin = false).");
-        return true;
-    }
-
-    if (string.IsNullOrWhiteSpace(options.UserName) || string.IsNullOrWhiteSpace(options.Password))
-    {
-        logger.LogError("Worker login failed: UserName or Password is empty.");
-        return false;
-    }
-
-    var userAccountService = scope.ServiceProvider.GetRequiredService<ISystemUserAccountService>();
-    var account = await userAccountService.GetUserAccountAsync(options.UserName, options.Password);
-    if (account is null)
-    {
-        logger.LogError("Worker login failed for user {UserName}.", options.UserName);
-        return false;
-    }
-
-    logger.LogInformation(
-        "Worker login successful: {UserName} ({FullName}).",
-        account.UserName,
-        account.FullName);
-    return true;
-}

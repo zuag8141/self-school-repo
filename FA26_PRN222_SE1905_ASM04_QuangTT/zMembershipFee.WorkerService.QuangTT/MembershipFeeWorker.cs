@@ -12,15 +12,18 @@ public class MembershipFeeWorker : BackgroundService
 {
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly IOptions<WorkerOptions> _options;
+    private readonly IOptions<WorkerLoginOptions> _loginOptions;
     private readonly ILogger<MembershipFeeWorker> _logger;
 
     public MembershipFeeWorker(
         IServiceScopeFactory scopeFactory,
         IOptions<WorkerOptions> options,
+        IOptions<WorkerLoginOptions> loginOptions,
         ILogger<MembershipFeeWorker> logger)
     {
         _scopeFactory = scopeFactory;
         _options = options;
+        _loginOptions = loginOptions;
         _logger = logger;
     }
 
@@ -32,11 +35,25 @@ public class MembershipFeeWorker : BackgroundService
             intervalSeconds,
             _options.Value.DeactivateExpiredFees);
 
+        var isAuthenticated = false;
+
         while (!stoppingToken.IsCancellationRequested)
         {
             try
             {
-                await RunOnceAsync(stoppingToken);
+                if (!isAuthenticated)
+                {
+                    isAuthenticated = await TryLoginAsync(stoppingToken);
+                    if (!isAuthenticated)
+                    {
+                        _logger.LogWarning("Worker login has not succeeded; the maintenance job will retry after the next interval.");
+                    }
+                }
+
+                if (isAuthenticated)
+                {
+                    await RunOnceAsync(stoppingToken);
+                }
             }
             catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested)
             {
@@ -91,5 +108,36 @@ public class MembershipFeeWorker : BackgroundService
                 "Đã tự động chuyển {Count} khoản phí quá hạn sang trạng thái Inactive.",
                 deactivated);
         }
+    }
+
+    private async Task<bool> TryLoginAsync(CancellationToken cancellationToken)
+    {
+        var options = _loginOptions.Value;
+        if (!options.RequireLogin)
+        {
+            _logger.LogWarning("Worker login is disabled (Worker:Login:RequireLogin = false).");
+            return true;
+        }
+
+        if (string.IsNullOrWhiteSpace(options.UserName) || string.IsNullOrWhiteSpace(options.Password))
+        {
+            _logger.LogError("Worker login failed: UserName or Password is empty.");
+            return false;
+        }
+
+        using var scope = _scopeFactory.CreateScope();
+        var userAccountService = scope.ServiceProvider.GetRequiredService<ISystemUserAccountService>();
+        var account = await userAccountService.GetUserAccountAsync(options.UserName, options.Password);
+        if (account is null)
+        {
+            _logger.LogError("Worker login failed for user {UserName}.", options.UserName);
+            return false;
+        }
+
+        _logger.LogInformation(
+            "Worker login successful: {UserName} ({FullName}).",
+            account.UserName,
+            account.FullName);
+        return true;
     }
 }

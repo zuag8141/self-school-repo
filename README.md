@@ -190,9 +190,9 @@ Worker chạy liên tục, mỗi chu kỳ sẽ:
 
 Worker Service không có giao diện web, nên bước đăng nhập được thực hiện **khi khởi
 động**: chương trình kiểm tra `Worker:Login:UserName` / `Password` với bảng
-`System.UserAccount` trước khi chạy job. Nếu sai, worker ghi log
-`Worker login failed` và thoát với mã `1`; nếu đúng, log
-`Worker login successful: admin (Quang TT).` rồi mới bắt đầu vòng lặp.
+`System.UserAccount`. Nếu đúng, log sẽ có `Worker login successful: admin (Quang TT).`
+trước khi bắt đầu vòng lặp. Nếu kết nối hoặc tài khoản chưa đúng, service vẫn giữ trạng
+thái Running và ghi lỗi vào file log ở mỗi chu kỳ, để có thể chẩn đoán từ `services.msc`.
 
 Cấu hình trong `appsettings.json`:
 
@@ -222,6 +222,31 @@ dotnet run --project "FA26_PRN222_SE1905_ASM04_QuangTT\zMembershipFee.WorkerServ
 ```
 
 Dừng worker bằng `Ctrl + C`.
+
+### Chạy ASM04 bằng Windows Service (`services.msc`)
+
+`dotnet run` chỉ chạy worker ở chế độ console. Muốn thấy service trong `services.msc`,
+hãy publish rồi đăng ký file `.exe` một lần bằng **PowerShell chạy Run as administrator**:
+
+```powershell
+dotnet publish "FA26_PRN222_SE1905_ASM04_QuangTT\zMembershipFee.WorkerService.QuangTT" -c Release -r win-x64 --self-contained false -o ".\publish\ASM04-Worker"
+sc.exe create "QuangTT" binPath= "C:\duong-dan-day-du\publish\ASM04-Worker\zMembershipFee.WorkerService.QuangTT.exe" start= demand
+sc.exe description "QuangTT" "PRN222 ASM04 membership-fee background worker"
+```
+
+Mở `services.msc`, tìm **QuangTT** và bấm **Start**. File log
+được tự tạo tại:
+
+```text
+<thu-muc-publish>\Logs\QuangTT_SE1905_WS.txt
+```
+
+Lưu ý: LocalDB là SQL Server theo từng tài khoản Windows. Nếu vẫn dùng connection
+string `(localdb)\MSSQLLocalDB`, trong tab **Log On** của service chọn chính tài khoản
+Windows đã tạo database `PRN222`; hoặc chuyển sang SQL Server Express/SQL Server dùng
+chung. Nếu service chạy bằng `LocalSystem`, LocalDB của tài khoản cá nhân sẽ không truy
+cập được. Khi cần gỡ service, chạy `sc.exe delete "QuangTT"`
+trong terminal quản trị sau khi đã Stop service.
 
 ---
 
