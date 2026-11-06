@@ -1,0 +1,35 @@
+@page "/membership-fees/details/{Id:int}"
+@attribute [Authorize]
+@inject IMembershipFeeQuangTtService FeeService
+<PageTitle>Membership Fee Details · ASM3</PageTitle>
+<h1 class="h3 mb-3">Membership Fee Details</h1>
+@if (error is not null) { <div class="alert alert-danger">@error</div> }
+else if (item is null) { <p>Đang tải...</p> }
+else
+{
+    <div class="card shadow-sm"><div class="card-body"><dl class="row">
+        <dt class="col-sm-3">Hội viên</dt><dd class="col-sm-9">@item.MemberName</dd>
+        <dt class="col-sm-3">Số tiền</dt><dd class="col-sm-9">@item.Amount.ToString("N0") đ</dd>
+        <dt class="col-sm-3">Ngày thanh toán</dt><dd class="col-sm-9">@item.PaymentDate.ToString("dd/MM/yyyy")</dd>
+        <dt class="col-sm-3">Phương thức</dt><dd class="col-sm-9">@item.PaymentMethod</dd>
+        <dt class="col-sm-3">Mã giao dịch</dt><dd class="col-sm-9">@item.TransactionCode</dd>
+        <dt class="col-sm-3">Gói phí</dt><dd class="col-sm-9">@item.FeePackageQuangTt?.PackageName</dd>
+        <dt class="col-sm-3">Ngày bắt đầu</dt><dd class="col-sm-9">@item.StartDate?.ToString("dd/MM/yyyy")</dd>
+        <dt class="col-sm-3">Ngày kết thúc</dt><dd class="col-sm-9">@item.EndDate?.ToString("dd/MM/yyyy")</dd>
+        <dt class="col-sm-3">Status / Active</dt><dd class="col-sm-9">@item.Status / @item.IsActive</dd>
+        <dt class="col-sm-3">Publish date</dt><dd class="col-sm-9">@item.PublishDate</dd>
+        <dt class="col-sm-3">Update at</dt><dd class="col-sm-9">@item.UpdateAt</dd>
+        <dt class="col-sm-3">Ghi chú</dt><dd class="col-sm-9">@item.Notes</dd>
+    </dl></div></div>
+}
+<a href="/membership-fees" class="btn btn-outline-secondary mt-3">Quay lại</a>
+@code {
+    [Parameter] public int Id { get; set; }
+    private MembershipFeeQuangTt? item;
+    private string? error;
+    protected override async Task OnParametersSetAsync()
+    {
+        try { item = await FeeService.GetByIdAsync(Id); if (item is null) error = "Không tìm thấy khoản phí."; }
+        catch (Exception ex) { error = "Không tải được dữ liệu: " + ex.Message; }
+    }
+}

@@ -288,6 +288,11 @@
     connection.on("MembershipFeesChanged", function (payload) {
         const items = (payload && payload.items) ? payload.items : [];
         renderTable(items);
+        if (currentId > 0 && modalElement.classList.contains("show")) {
+            const current = items.find(x => x.membershipFeeQuangTtid === currentId);
+            if (current) fillForm(current);
+            else { bootstrap.Modal.getInstance(modalElement)?.hide(); }
+        }
 
         const action = (payload && payload.action) ? payload.action : "changed";
         const memberName = (payload && payload.memberName) ? payload.memberName : "";

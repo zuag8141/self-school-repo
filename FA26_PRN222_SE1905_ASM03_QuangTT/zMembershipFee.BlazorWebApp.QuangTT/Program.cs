@@ -28,7 +28,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddAuthorization();
 
-builder.Services.AddDbContext<PRN222Context>(options =>
+builder.Services.AddDbContextFactory<PRN222Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<MembershipFeeQuangTtRepository>();

@@ -11,7 +11,7 @@
     <a asp-action="Index" class="btn btn-outline-secondary">Quay lại</a>
 </div>
 
-<div class="card shadow-sm">
+<div class="card shadow-sm" data-live-fee-id="@Model.MembershipFeeQuangTtid">
     <div class="card-body">
         <form asp-action="Edit" method="post">
             <input type="hidden" asp-for="MembershipFeeQuangTtid" />
@@ -26,5 +26,7 @@
 </div>
 
 @section Scripts {
+    <script src="~/lib/signalr/signalr.min.js"></script>
+    <script src="~/js/membership-fee-live.js" asp-append-version="true"></script>
     <partial name="_ValidationScriptsPartial" />
 }

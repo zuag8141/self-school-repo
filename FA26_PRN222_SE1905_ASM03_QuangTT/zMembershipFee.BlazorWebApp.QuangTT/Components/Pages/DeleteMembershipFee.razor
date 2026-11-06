@@ -1,0 +1,21 @@
+@inject IMembershipFeeQuangTtService FeeService
+@inject IJSRuntime JS
+@if (error is not null) { <div class="alert alert-danger">@error</div> }
+@code {
+    [Parameter] public EventCallback<string> OnDeleted { get; set; }
+    private string? error;
+    private bool busy;
+    public async Task DeleteAsync(MembershipFeeQuangTt item)
+    {
+        if (busy) return;
+        busy = true;
+        try
+        {
+            if (!await JS.InvokeAsync<bool>("confirm", $"Xoá khoản phí #{item.MembershipFeeQuangTtid} của \"{item.MemberName}\"?")) return;
+            if (!await FeeService.DeleteAsync(item.MembershipFeeQuangTtid)) { error = "Không tìm thấy khoản phí cần xoá."; return; }
+            await OnDeleted.InvokeAsync($"Đã xoá khoản phí #{item.MembershipFeeQuangTtid}.");
+        }
+        catch (Exception ex) { error = "Lỗi xoá dữ liệu: " + ex.Message; }
+        finally { busy = false; await InvokeAsync(StateHasChanged); }
+    }
+}

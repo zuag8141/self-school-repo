@@ -48,93 +48,10 @@
 
 @if (showForm)
 {
-    <div class="card shadow-sm mb-3">
-        <div class="card-header bg-white d-flex justify-content-between align-items-center">
-            <h2 class="h5 mb-0">@(editing ? $"Edit #{model.MembershipFeeQuangTtid}" : "Create Membership Fee")</h2>
-            <button type="button" class="btn-close" @onclick="CloseForm" aria-label="Close"></button>
-        </div>
-        <div class="card-body">
-            <EditForm Model="model" OnValidSubmit="SaveAsync">
-                <DataAnnotationsValidator />
-                <div class="text-danger mb-2">
-                    <ValidationSummary />
-                </div>
-
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label class="form-label">Tên hội viên <span class="text-danger">*</span></label>
-                        <InputText @bind-Value="model.MemberName" class="form-control" placeholder="VD: Nguyễn Văn An" />
-                        <ValidationMessage For="() => model.MemberName" class="text-danger small" />
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Số tiền <span class="text-danger">*</span></label>
-                        <InputNumber @bind-Value="model.Amount" class="form-control" step="0.01" />
-                        <ValidationMessage For="() => model.Amount" class="text-danger small" />
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Ngày thanh toán</label>
-                        <InputDate @bind-Value="model.PaymentDate" class="form-control" />
-                        <ValidationMessage For="() => model.PaymentDate" class="text-danger small" />
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Phương thức thanh toán</label>
-                        <InputText @bind-Value="model.PaymentMethod" class="form-control" placeholder="Cash / Banking / Momo..." />
-                        <ValidationMessage For="() => model.PaymentMethod" class="text-danger small" />
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Mã giao dịch</label>
-                        <InputText @bind-Value="model.TransactionCode" class="form-control" placeholder="VD: GD-2026-036" />
-                        <ValidationMessage For="() => model.TransactionCode" class="text-danger small" />
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Gói phí</label>
-                        <InputSelect TValue="int?" @bind-Value="model.FeePackageQuangTtid" class="form-select">
-                            <option value="">-- Chọn gói phí --</option>
-                            @foreach (var package in packages)
-                            {
-                                <option value="@package.FeePackageQuangTtid">@package.PackageName</option>
-                            }
-                        </InputSelect>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Ngày bắt đầu</label>
-                        <InputDate @bind-Value="model.StartDate" class="form-control" />
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Ngày kết thúc</label>
-                        <InputDate @bind-Value="model.EndDate" class="form-control" />
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label">Status</label>
-                        <InputNumber @bind-Value="model.Status" class="form-control" />
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label">Ngày publish</label>
-                        <InputDate @bind-Value="model.PublishDate" class="form-control" />
-                    </div>
-                    <div class="col-md-4 d-flex align-items-end">
-                        <div class="form-check mb-2">
-                            <InputCheckbox @bind-Value="model.IsActive" class="form-check-input" />
-                            <label class="form-check-label">Is Active</label>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label">Ghi chú</label>
-                        <InputTextArea @bind-Value="model.Notes" class="form-control" rows="3" />
-                    </div>
-                </div>
-
-                <div class="mt-4 d-flex gap-2">
-                    <button type="submit" class="btn btn-primary">
-                        @(editing ? "Save changes" : "Create")
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary" @onclick="CloseForm">Huỷ</button>
-                </div>
-            </EditForm>
-        </div>
-    </div>
+    @if (selectedItem is null) { <CreateMembershipFee OnCancel="CloseForm" OnSaved="OnSavedAsync" /> }
+    else { <EditMembershipFee Item="selectedItem" OnCancel="CloseForm" OnSaved="OnSavedAsync" /> }
 }
-
+<DeleteMembershipFee @ref="deleteComponent" OnDeleted="OnDeletedAsync" />
 <div class="card shadow-sm">
     <div class="table-responsive">
         <table id="membershipFeeTable" class="table table-striped table-hover align-middle mb-0">
@@ -230,9 +147,9 @@
 @code {
     private List<MembershipFeeQuangTt> items = new();
     private List<FeePackageQuangTt> packages = new();
-    private MembershipFeeQuangTt model = new();
+
     private bool showForm;
-    private bool editing;
+
     private bool needsPagination;
     private string? memberName;
     private string? paymentMethod;
@@ -302,107 +219,13 @@
         await SearchAsync();
     }
 
-    private void ShowForm(MembershipFeeQuangTt? item)
-    {
-        editing = item is not null;
-        showForm = true;
-
-        model = item is null
-            ? new MembershipFeeQuangTt
-            {
-                PaymentDate = DateTime.Today,
-                PublishDate = DateTime.Today,
-                IsActive = true
-            }
-            : new MembershipFeeQuangTt
-            {
-                MembershipFeeQuangTtid = item.MembershipFeeQuangTtid,
-                MemberName = item.MemberName,
-                Amount = item.Amount,
-                PaymentDate = item.PaymentDate,
-                PaymentMethod = item.PaymentMethod,
-                TransactionCode = item.TransactionCode,
-                StartDate = item.StartDate,
-                EndDate = item.EndDate,
-                Notes = item.Notes,
-                Status = item.Status,
-                PublishDate = item.PublishDate,
-                FeePackageQuangTtid = item.FeePackageQuangTtid,
-                IsActive = item.IsActive
-            };
-    }
-
-    private void CloseForm()
-    {
-        showForm = false;
-        editing = false;
-        model = new MembershipFeeQuangTt();
-    }
-
-    private async Task SaveAsync()
-    {
-        try
-        {
-            if (editing)
-            {
-                var updated = await FeeService.UpdateAsync(model);
-                if (!updated)
-                {
-                    SetError("Không tìm thấy khoản phí cần cập nhật.");
-                    return;
-                }
-
-                message = $"Đã cập nhật khoản phí #{model.MembershipFeeQuangTtid}.";
-            }
-            else
-            {
-                var created = await FeeService.CreateAsync(model);
-                message = $"Đã tạo khoản phí #{created.MembershipFeeQuangTtid} cho \"{created.MemberName}\".";
-            }
-
-            isError = false;
-            showForm = false;
-            editing = false;
-            model = new MembershipFeeQuangTt();
-            await SearchAsync();
-        }
-        catch (Exception ex)
-        {
-            SetError("Lỗi lưu dữ liệu: " + ex.Message);
-        }
-    }
-
-    private async Task DeleteAsync(MembershipFeeQuangTt item)
-    {
-        var confirmed = await JS.InvokeAsync<bool>(
-            "confirm",
-            $"Xoá khoản phí #{item.MembershipFeeQuangTtid} của \"{item.MemberName}\"?");
-
-        if (!confirmed)
-        {
-            return;
-        }
-
-        try
-        {
-            var deleted = await FeeService.DeleteAsync(item.MembershipFeeQuangTtid);
-            if (deleted)
-            {
-                message = $"Đã xoá khoản phí #{item.MembershipFeeQuangTtid}.";
-                isError = false;
-                await SearchAsync();
-            }
-            else
-            {
-                SetError("Không tìm thấy khoản phí cần xoá.");
-            }
-        }
-        catch (Exception ex)
-        {
-            SetError("Lỗi xoá dữ liệu: " + ex.Message);
-        }
-    }
-
+    private MembershipFeeQuangTt? selectedItem;
+    private DeleteMembershipFee? deleteComponent;
+    private void ShowForm(MembershipFeeQuangTt? item) { selectedItem = item; showForm = true; }
+    private void CloseForm() { selectedItem = null; showForm = false; }
+    private async Task OnSavedAsync(string text) { CloseForm(); message = text; await SearchAsync(); }
+    private Task DeleteAsync(MembershipFeeQuangTt item) => deleteComponent!.DeleteAsync(item);
+    private async Task OnDeletedAsync(string text) { message = text; await SearchAsync(); }
     private void SetError(string text)
     {
         message = text;

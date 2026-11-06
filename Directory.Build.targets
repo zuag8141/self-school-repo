@@ -31,16 +31,6 @@
     <Exec Command="pwsh -NoProfile -ExecutionPolicy Bypass -File &quot;$(LocalCodeSigningScript)&quot; -TargetPath &quot;$(TargetPath)&quot;"
           ContinueOnError="true" />
 
-    <ItemGroup Condition="'$(IsCanonicalRazorApp)' != 'true' and Exists('$(CanonicalSharedBinDir)zMembershipFee.Repositories.QuangTT.dll')">
-      <ApprovedSharedAssembly Include="$(CanonicalSharedBinDir)zMembershipFee.Entities.QuangTT.dll" />
-      <ApprovedSharedAssembly Include="$(CanonicalSharedBinDir)zMembershipFee.Repositories.QuangTT.dll" />
-      <ApprovedSharedAssembly Include="$(CanonicalSharedBinDir)zMembershipFee.Services.QuangTT.dll" />
-    </ItemGroup>
-
-    <Copy SourceFiles="@(ApprovedSharedAssembly)"
-          DestinationFolder="$(TargetDir)"
-          SkipUnchangedFiles="true"
-          Condition="'@(ApprovedSharedAssembly)' != ''" />
   </Target>
 
 </Project>

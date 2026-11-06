@@ -11,7 +11,7 @@
     <a asp-action="Index" class="btn btn-outline-secondary">Quay lại</a>
 </div>
 
-<div class="card shadow-sm">
+<div class="card shadow-sm" data-live-fee-id="@Model.MembershipFeeQuangTtid">
     <div class="card-body">
         <dl class="row mb-0">
             <dt class="col-sm-3">Hội viên</dt>
@@ -67,3 +67,8 @@
         <a asp-action="Delete" asp-route-id="@Model.MembershipFeeQuangTtid" class="btn btn-outline-danger">Delete</a>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/lib/signalr/signalr.min.js"></script>
+    <script src="~/js/membership-fee-live.js" asp-append-version="true"></script>
+}

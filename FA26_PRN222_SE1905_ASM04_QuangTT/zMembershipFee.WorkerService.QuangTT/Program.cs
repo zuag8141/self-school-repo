@@ -35,6 +35,7 @@ builder.Services.AddScoped<IMembershipFeeMaintenanceService, MembershipFeeMainte
 builder.Services.Configure<WorkerOptions>(builder.Configuration.GetSection(WorkerOptions.SectionName));
 builder.Services.Configure<WorkerLoginOptions>(builder.Configuration.GetSection(WorkerLoginOptions.SectionName));
 builder.Services.AddHostedService<MembershipFeeWorker>();
+builder.Services.AddSingleton<MembershipFeeSnapshotWriter>();
 
 var host = builder.Build();
 

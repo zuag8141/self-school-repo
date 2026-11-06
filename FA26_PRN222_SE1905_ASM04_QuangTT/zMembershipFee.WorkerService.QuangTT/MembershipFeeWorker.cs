@@ -89,6 +89,9 @@ public class MembershipFeeWorker : BackgroundService
         }
 
         var summary = await maintenance.GetSummaryAsync();
+        var fees = scope.ServiceProvider.GetRequiredService<IMembershipFeeQuangTtService>();
+        var writer = scope.ServiceProvider.GetRequiredService<MembershipFeeSnapshotWriter>();
+        await writer.WriteAsync(await fees.GetAllAsync(), cancellationToken);
 
         _logger.LogInformation(
             "Run at {RunAt:dd/MM/yyyy HH:mm:ss} | Deactivated: {Deactivated} | Total: {Total} | Active: {Active} | Inactive: {Inactive} | Expired: {Expired} | Revenue: {Revenue:N0} VND | This month: {RevenueThisMonth:N0} VND | Packages: {Packages}",

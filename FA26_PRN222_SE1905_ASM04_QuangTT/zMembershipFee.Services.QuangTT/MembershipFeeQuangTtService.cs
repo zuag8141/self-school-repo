@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using zMembershipFee.Entities.QuangTT.Models;
 using zMembershipFee.Repositories.QuangTT;
 
@@ -24,6 +25,7 @@ public class MembershipFeeQuangTtService : IMembershipFeeQuangTtService
     public async Task<MembershipFeeQuangTt> CreateAsync(MembershipFeeQuangTt membershipFee)
     {
         ArgumentNullException.ThrowIfNull(membershipFee);
+        Validator.ValidateObject(membershipFee, new ValidationContext(membershipFee), true);
 
         // Không đính kèm navigation khi thêm mới, tránh EF cố insert cả FeePackage.
         membershipFee.FeePackageQuangTt = null;
@@ -40,6 +42,7 @@ public class MembershipFeeQuangTtService : IMembershipFeeQuangTtService
     public async Task<bool> UpdateAsync(MembershipFeeQuangTt membershipFee)
     {
         ArgumentNullException.ThrowIfNull(membershipFee);
+        Validator.ValidateObject(membershipFee, new ValidationContext(membershipFee), true);
 
         var existing = await _repository.GetByIdAsync(membershipFee.MembershipFeeQuangTtid);
         if (existing is null)

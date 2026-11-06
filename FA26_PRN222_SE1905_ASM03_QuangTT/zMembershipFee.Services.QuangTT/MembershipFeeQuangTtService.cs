@@ -1,3 +1,6 @@
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using zMembershipFee.Repositories.QuangTT.DBContext;
 using zMembershipFee.Entities.QuangTT.Models;
 using zMembershipFee.Repositories.QuangTT;
 
@@ -5,25 +8,25 @@ namespace zMembershipFee.Services.QuangTT;
 
 public class MembershipFeeQuangTtService : IMembershipFeeQuangTtService
 {
-    private readonly MembershipFeeQuangTtRepository _repository;
-
-    public MembershipFeeQuangTtService(MembershipFeeQuangTtRepository repository)
+    private readonly IDbContextFactory<PRN222Context> _contextFactory;
+    public MembershipFeeQuangTtService(IDbContextFactory<PRN222Context> contextFactory) => _contextFactory = contextFactory;
+    public Task<List<MembershipFeeQuangTt>> GetAllAsync() => SearchAsync(null, null, null);
+    public async Task<MembershipFeeQuangTt?> GetByIdAsync(int id)
     {
-        _repository = repository;
+        await using var context = await _contextFactory.CreateDbContextAsync();
+        return await new MembershipFeeQuangTtRepository(context).GetByIdAsync(id);
     }
-
-    public Task<List<MembershipFeeQuangTt>> GetAllAsync()
-        => _repository.GetAllAsync();
-
-    public Task<MembershipFeeQuangTt?> GetByIdAsync(int id)
-        => _repository.GetByIdAsync(id);
-
-    public Task<List<MembershipFeeQuangTt>> SearchAsync(string? memberName, string? paymentMethod, string? packageName)
-        => _repository.SearchAsync(memberName, paymentMethod, packageName);
-
+    public async Task<List<MembershipFeeQuangTt>> SearchAsync(string? memberName, string? paymentMethod, string? packageName)
+    {
+        await using var context = await _contextFactory.CreateDbContextAsync();
+        return await new MembershipFeeQuangTtRepository(context).SearchAsync(memberName, paymentMethod, packageName);
+    }
     public async Task<MembershipFeeQuangTt> CreateAsync(MembershipFeeQuangTt membershipFee)
     {
+        await using var context = await _contextFactory.CreateDbContextAsync();
+        var repository = new MembershipFeeQuangTtRepository(context);
         ArgumentNullException.ThrowIfNull(membershipFee);
+        Validator.ValidateObject(membershipFee, new ValidationContext(membershipFee), true);
 
         // Không đính kèm navigation khi thêm mới, tránh EF cố insert cả FeePackage.
         membershipFee.FeePackageQuangTt = null;
@@ -34,14 +37,17 @@ public class MembershipFeeQuangTtService : IMembershipFeeQuangTtService
         membershipFee.PublishDate ??= DateTime.Today;
         membershipFee.UpdateAt = DateTime.Now;
 
-        return await _repository.CreateAsync(membershipFee);
+        return await repository.CreateAsync(membershipFee);
     }
 
     public async Task<bool> UpdateAsync(MembershipFeeQuangTt membershipFee)
     {
+        await using var context = await _contextFactory.CreateDbContextAsync();
+        var repository = new MembershipFeeQuangTtRepository(context);
         ArgumentNullException.ThrowIfNull(membershipFee);
+        Validator.ValidateObject(membershipFee, new ValidationContext(membershipFee), true);
 
-        var existing = await _repository.GetByIdAsync(membershipFee.MembershipFeeQuangTtid);
+        var existing = await repository.GetByIdAsync(membershipFee.MembershipFeeQuangTtid);
         if (existing is null)
         {
             return false;
@@ -67,17 +73,19 @@ public class MembershipFeeQuangTtService : IMembershipFeeQuangTtService
         // Không đính kèm navigation để tránh EF cập nhật lan sang FeePackage.
         existing.FeePackageQuangTt = null;
 
-        return await _repository.UpdateAsync(existing);
+        return await repository.UpdateAsync(existing);
     }
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var existing = await _repository.GetByIdAsync(id);
+        await using var context = await _contextFactory.CreateDbContextAsync();
+        var repository = new MembershipFeeQuangTtRepository(context);
+        var existing = await repository.GetByIdAsync(id);
         if (existing is null)
         {
             return false;
         }
 
-        return await _repository.DeleteAsync(existing);
+        return await repository.DeleteAsync(existing);
     }
 }
